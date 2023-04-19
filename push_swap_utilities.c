@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:43 by evocatur          #+#    #+#             */
-/*   Updated: 2023/04/19 16:57:26 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:01:49 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void ft_error(void)
 {
 	ft_printf("error\n");
 }
-void ft_make_stack(char **list,int len_list)
+stack *ft_make_stack(char **list,int len_list)
 {
 	int i;
 	stack* top;
@@ -36,24 +36,20 @@ void ft_append_node(stack **head_ref, int new_value, int new_index)
 	stack *new_node;
 	stack *last;
 
-	last = *head_ref;
 	new_node = NULL;
 	new_node = (stack*)malloc(sizeof(stack*));
 	if (!new_node)
 		return ;
 	new_node->value = new_value;
 	new_node->index = new_index;
-
+	last = *head_ref;
 	if (*head_ref == NULL)
 	{
-		printf("\nsadasd\n");
 		*head_ref = new_node;
 		return ;
 	}
 	while (last->next)
-	{
 		last = last->next;
-	}
 	
 	last->next = new_node;
 }
