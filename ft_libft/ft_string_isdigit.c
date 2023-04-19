@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_string_isdigit.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/19 14:44:30 by evocatur          #+#    #+#             */
-/*   Updated: 2023/04/19 17:18:02 by evocatur         ###   ########.fr       */
+/*   Created: 2023/01/17 11:24:28 by evocatur          #+#    #+#             */
+/*   Updated: 2023/04/19 17:17:58 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "libft.h"
 
-int main(int argc,char **argv)
+int	ft_string_isdigit(char *c)
 {
-    push_swap(argc,argv);
-}
-
-void push_swap(int argc,char **argv)
-{
-    stack *a;
-    stack *b;
-
-    a = ft_make_stack(argv,argc);
+	while (*c)
+	{
+		if ((int)*c < 48 || (int)*c > 57)
+			return (0);
+		c++;
+	}
+	return (1);
 }

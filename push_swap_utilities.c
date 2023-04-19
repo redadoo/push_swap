@@ -6,15 +6,25 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:43 by evocatur          #+#    #+#             */
-/*   Updated: 2023/04/19 17:01:49 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:28:04 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
 
-void ft_error(void)
+void ft_error(stack **head_ref)
 {
 	ft_printf("error\n");
+	stack* tmp;
+
+   	while (*head_ref != NULL)
+    {
+       tmp = *head_ref;
+       *head_ref = (*head_ref)->next;
+	   tmp = NULL;
+       free(tmp);
+    }
+	exit(0);
 }
 stack *ft_make_stack(char **list,int len_list)
 {
@@ -25,12 +35,13 @@ stack *ft_make_stack(char **list,int len_list)
 	i = 1;
 	while (i < len_list)
 	{
+		if (ft_check(list[i]) == 0)
+			ft_error(&top);
 		ft_append_node(&top,ft_atoi(list[i]),i - 1);
 		i++;
 	}
 	ft_print_stack(&top);
 }
-
 void ft_append_node(stack **head_ref, int new_value, int new_index)
 {
 	stack *new_node;
@@ -61,7 +72,15 @@ void ft_print_stack(stack **head_ref)
 
 	while (last)
 	{
-		printf("%i %i\n",last->value,last->index);
+		printf("value : %i index : %i\n",last->value,last->index);
 		last = last->next;
 	}
+}
+int	ft_check(char *s)
+{
+	if (ft_string_isdigit(s) == 0)
+		return (0);
+	if (ft_atoi(s) <= -2147483648)
+		return (0);
+	return (1);
 }

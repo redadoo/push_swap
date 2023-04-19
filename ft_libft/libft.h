@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 11:28:29 by evocatur          #+#    #+#             */
-/*   Updated: 2023/04/19 15:11:07 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:09:22 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void		ft_bzero(void *s, size_t n);
 int			ft_isalnum(int c);
 int			ft_isascii(int c);
 int			ft_isdigit(int c);
+int			ft_string_isdigit(char *c);
 int			ft_tolower(int ch);
 int			ft_toupper(int ch);
 int			ft_memcmp(const void *str1, const void *str2, size_t n);

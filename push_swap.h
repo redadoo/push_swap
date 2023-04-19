@@ -19,6 +19,7 @@ typedef struct s_stack
 void	ft_append_node(stack **head_ref, int new_value, int new_index);
 void	ft_print_stack(stack **head_ref);
 stack	*ft_make_stack(char **list,int len_list);
-void	ft_error(void);
+void	ft_error(stack **head_ref);
 void	push_swap(int argc,char **argv);
+int		ft_check(char *s);
 # endif 
