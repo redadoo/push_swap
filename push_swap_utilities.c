@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:43 by evocatur          #+#    #+#             */
-/*   Updated: 2023/04/19 16:46:27 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:51:44 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void ft_append_node(stack **head_ref, int new_value, int new_index)
 	new_node->value = new_value;
 	new_node->index = new_index;
 
-	if (last->next == NULL)
+	if (last == NULL)
 	{
-		last->next = new_node;
+		last = new_node;
 		return ;
 	}
 	while (last->next)
@@ -67,7 +67,7 @@ void ft_print_stack(stack **head_ref)
 
 	while (last)
 	{
-		printf("%i\n",last->value);
+		printf("%i %i\n",last->value,last->index);
 		last = last->next;
 	}
 }
