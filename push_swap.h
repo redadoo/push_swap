@@ -29,4 +29,7 @@ void	ft_reverse_rotate(stack **stack);
 void	ft_rotate(stack **stack);
 void	ft_swap(stack **stack);
 stack	*last_node(stack **head_ref);
+stack	*second_node(stack **head_ref);
+void	push_a(stack **a, stack **b);
+void	push_b(stack **a, stack **b);
 # endif 

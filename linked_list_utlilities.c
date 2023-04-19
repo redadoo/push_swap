@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:44:11 by evocatur          #+#    #+#             */
-/*   Updated: 2023/04/19 18:01:32 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:27:07 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,36 @@ stack *last_node(stack **head_ref)
 	while (last->next != NULL)
 		last = last->next;
 	return (last);
+}
+stack *second_node(stack **head_ref)
+{
+	stack	*last;
+
+	last = *head_ref;
+	if (last->next != NULL)
+		last = last->next;
+	else
+		return (NULL);
+	return (last);
+}
+void delete_node(stack **head_ref,int s_index)
+{
+	stack *prev_node;
+	stack *delete_node;
+	stack *next_node;
+
+	delete_node = (*head_ref);
+
+	if (delete_node == NULL || delete_node->index == s_index)
+	{
+		free(delete_node);
+		return ;
+	}
+	while (delete_node->index != s_index)
+		delete_node = delete_node->next;
+	
+	next_node = delete_node->next;
+
+	delete_node = NULL;
+	free (delete_node);
 }

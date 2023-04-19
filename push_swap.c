@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:30 by evocatur          #+#    #+#             */
-/*   Updated: 2023/04/19 17:54:09 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:20:22 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 int main(int argc,char **argv)
 {
-    push_swap(argc,argv);
+	push_swap(argc,argv);
 }
 
 void push_swap(int argc,char **argv)
 {
-    stack *a;
-    stack *b;
+	stack *a;
+	stack *b;
 
-    a = ft_make_stack(argv,argc);
-    ft_swap(&a);
+	a = ft_make_stack(argv,argc);
+	b = NULL;
+	ft_swap(&a);
 }
