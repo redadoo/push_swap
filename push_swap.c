@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:30 by evocatur          #+#    #+#             */
-/*   Updated: 2023/04/19 17:33:08 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:54:09 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ void push_swap(int argc,char **argv)
     stack *b;
 
     a = ft_make_stack(argv,argc);
+    ft_swap(&a);
 }

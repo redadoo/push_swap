@@ -22,4 +22,11 @@ stack	*ft_make_stack(char **list,int len_list);
 void	ft_error(stack **head_ref);
 void	push_swap(int argc,char **argv);
 int		ft_check(char *s);
+void	ft_double_reverse_rotate(stack **a, stack **b);
+void	ft_double_rotate(stack **a, stack **b);
+void	ft_double_swap(stack **a, stack **b);
+void	ft_reverse_rotate(stack **stack);
+void	ft_rotate(stack **stack);
+void	ft_swap(stack **stack);
+stack	*last_node(stack **head_ref);
 # endif 

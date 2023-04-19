@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:43 by evocatur          #+#    #+#             */
-/*   Updated: 2023/04/19 17:28:04 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:03:21 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,53 +26,16 @@ void ft_error(stack **head_ref)
     }
 	exit(0);
 }
-stack *ft_make_stack(char **list,int len_list)
-{
-	int i;
-	stack* top;
-	 
-	top = NULL;
-	i = 1;
-	while (i < len_list)
-	{
-		if (ft_check(list[i]) == 0)
-			ft_error(&top);
-		ft_append_node(&top,ft_atoi(list[i]),i - 1);
-		i++;
-	}
-	ft_print_stack(&top);
-}
-void ft_append_node(stack **head_ref, int new_value, int new_index)
-{
-	stack *new_node;
-	stack *last;
-
-	new_node = NULL;
-	new_node = (stack*)malloc(sizeof(stack*));
-	if (!new_node)
-		return ;
-	new_node->value = new_value;
-	new_node->index = new_index;
-	last = *head_ref;
-	if (*head_ref == NULL)
-	{
-		*head_ref = new_node;
-		return ;
-	}
-	while (last->next)
-		last = last->next;
-	
-	last->next = new_node;
-}
 void ft_print_stack(stack **head_ref)
 {
 	stack *last;
 
 	last = *head_ref;
 
+	ft_printf("\n");
 	while (last)
 	{
-		printf("value : %i index : %i\n",last->value,last->index);
+		ft_printf("value : %i index : %i\n",last->value,last->index);
 		last = last->next;
 	}
 }
