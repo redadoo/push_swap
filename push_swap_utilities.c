@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:43 by evocatur          #+#    #+#             */
-/*   Updated: 2023/04/19 16:51:44 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:57:26 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@ void ft_make_stack(char **list,int len_list)
 	stack* top;
 	 
 	top = NULL;
-	top = (stack*)malloc(sizeof(stack*));
-	if (!top)
-		return ;
 	i = 1;
 	while (i < len_list)
 	{
@@ -47,9 +44,10 @@ void ft_append_node(stack **head_ref, int new_value, int new_index)
 	new_node->value = new_value;
 	new_node->index = new_index;
 
-	if (last == NULL)
+	if (*head_ref == NULL)
 	{
-		last = new_node;
+		printf("\nsadasd\n");
+		*head_ref = new_node;
 		return ;
 	}
 	while (last->next)
