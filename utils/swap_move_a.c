@@ -1,48 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_move_0.c                                      :+:      :+:    :+:   */
+/*   swap_move_a.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:33:35 by evocatur          #+#    #+#             */
-/*   Updated: 2023/04/19 18:13:48 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/04/20 16:08:01 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+# include "../src/push_swap.h"
 
-void ft_swap(stack **list)
+void ft_swap_a(stack **a)
 {
 	int		first_value;
 	int		second_value;
 	stack	*first_number;
 	stack	*second_number;
 
-	first_number = (*list);
-	second_number = second_node(list);
+	first_number = (*a);
+	second_number = second_node(a);
 	second_value = second_number->value;
 	first_value = first_number->value;
 	if (second_number == NULL || first_number == NULL)
 		return ;
 	first_number->value = second_value;
 	second_number->value = first_value;
-	ft_print_stack(list);
+	ft_printf("sa\n");
 }
-
-void ft_rotate(stack **list)
+/* void ft_push_a(stack **a, stack **b)
 {
-	
+	if (b == NULL)
+		return ;
+	ft_printf("pa\n");
 }
-void ft_reverse_rotate(stack **list)
+void ft_rotate_a(stack **a)
 {
-	
+	ft_printf("ra\n");
 }
-void ft_double_swap(stack **a, stack **b)
+void ft_reverse_rotate_a(stack **a)
 {
-	
+	ft_printf("rra\n");
 }
-void ft_double_rotate(stack **a, stack **b)
-{
-	
-}
+ */

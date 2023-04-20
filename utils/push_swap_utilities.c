@@ -6,11 +6,11 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:43 by evocatur          #+#    #+#             */
-/*   Updated: 2023/04/19 18:03:21 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/04/20 16:02:25 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+# include "../src/push_swap.h"
 
 void ft_error(stack **head_ref)
 {

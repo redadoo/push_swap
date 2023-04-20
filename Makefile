@@ -6,48 +6,35 @@
 #    By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/19 15:41:17 by evocatur          #+#    #+#              #
-#    Updated: 2023/04/19 15:51:23 by evocatur         ###   ########.fr        #
+#    Updated: 2023/04/20 15:46:24 by evocatur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+NAME = push_swap.out
 
-SRC = $(MAIN_SRC) $(LIBFT_SRC)
+SRCS =  $(wildcard src/*.c utils/*.c)
 
-MAIN_SRC = push_swap.c push_swap_utilities.c
+OBJS = ${SRCS:.c=.o}
 
-LIBFT_SRC = ft_libft/*.c
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -Iincludes
 
-FLAGS = -Wall -Wextra -Werror
+RM = rm -rf
 
-OBJ = *.O
+all: ${NAME}
+${NAME}: ${OBJS}
+	@${MAKE} -C ./ft_libft
+	@${CC} ${CFLAGS} ${OBJS} ./ft_libft/libft.a -o ${NAME}
 
-NONE='\033[0m'
-GREEN='\033[32m'
-YELLOW='\033[33m'
-GRAY='\033[2;37m'
-CURSIVE='\033[3m'
-
-all: $(NAME)
-
-$(NAME) : $(SRC)
-	@echo $(CURSIVE)$(GRAY) "     - Compiling $(NAME)..." $(NONE)
-	@gcc $(FLAGS) $(SRC)  $(NAME)
-	@echo $(GREEN)"- Compiled -"$(NONE)
-
-norm:
-	@echo $(GRAY) ""
-	@norminette $(SRC) *.h */*.h
-	@echo $(NONE) ""
-
-clean:
-	@echo $(CURSIVE)$(GRAY) "     - Removing object files..." $(NONE)
-	@rm -rf $(OBJ)
-	@make -C $(LIBF_DIR) clean
+clean: 
+	@${MAKE} -C ./ft_libft fclean
+	@${RM} ${OBJS}
+	@${RM} ${CHECK_OBJS}
 
 fclean: clean
-	@echo $(CURSIVE)$(GRAY) "     - Removing $(NAME)..." $(NONE)
-	@rm -rf $(NAME)
-	@make -C $(LIBF_DIR) fclean
+	@${RM} ${NAME}
+	@${RM} ${CHECK}
 
 re: fclean all
+
+.PHONY: all clean fclean re

@@ -6,11 +6,11 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:44:11 by evocatur          #+#    #+#             */
-/*   Updated: 2023/04/19 18:27:07 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/04/20 15:43:39 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+# include "../src/push_swap.h"
 
 stack *ft_make_stack(char **list,int len_list)
 {
@@ -26,7 +26,6 @@ stack *ft_make_stack(char **list,int len_list)
 		ft_append_node(&top,ft_atoi(list[i]),i - 1);
 		i++;
 	}
-	ft_print_stack(&top);
 	return (top);
 }
 void ft_append_node(stack **head_ref, int new_value, int new_index)
@@ -73,12 +72,9 @@ stack *second_node(stack **head_ref)
 }
 void delete_node(stack **head_ref,int s_index)
 {
-	stack *prev_node;
 	stack *delete_node;
-	stack *next_node;
 
 	delete_node = (*head_ref);
-
 	if (delete_node == NULL || delete_node->index == s_index)
 	{
 		free(delete_node);
@@ -86,9 +82,6 @@ void delete_node(stack **head_ref,int s_index)
 	}
 	while (delete_node->index != s_index)
 		delete_node = delete_node->next;
-	
-	next_node = delete_node->next;
-
 	delete_node = NULL;
 	free (delete_node);
 }

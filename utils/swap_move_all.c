@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   swap_move_all.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/19 14:44:30 by evocatur          #+#    #+#             */
-/*   Updated: 2023/04/19 18:20:22 by evocatur         ###   ########.fr       */
+/*   Created: 2023/04/20 14:04:05 by evocatur          #+#    #+#             */
+/*   Updated: 2023/04/20 15:45:24 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+# include "../src/push_swap.h"
 
-int main(int argc,char **argv)
+/* void ft_swap_all(stack **a, stack **b)
 {
-	push_swap(argc,argv);
+    ft_printf("ss\n");
 }
-
-void push_swap(int argc,char **argv)
+void ft_rotate_all(stack **a, stack **b)
 {
-	stack *a;
-	stack *b;
-
-	a = ft_make_stack(argv,argc);
-	b = NULL;
-	ft_swap(&a);
+    ft_printf("rr\n");
 }
+void ft_rotate_reverse_all(stack **a, stack **b)
+{
+    ft_printf("rrr\n");
+} */
