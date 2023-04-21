@@ -10,31 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../src/push_swap.h"
+#include "../src/push_swap.h"
 
-stack *ft_make_stack(char **list,int len_list)
+t_stack	*ft_make_stack(char **list, int len_list)
 {
-	int i;
-	stack* top;
-	 
+	int			i;
+	t_stack		*top;
+
 	top = NULL;
 	i = 1;
 	while (i < len_list)
 	{
 		if (ft_check(list[i]) == 0)
 			ft_error(&top);
-		ft_append_node(&top,ft_atoi(list[i]),i - 1);
+		ft_append_node(&top, ft_atoi(list[i]), i - 1);
 		i++;
 	}
 	return (top);
 }
-void ft_append_node(stack **head_ref, int new_value, int new_index)
+
+void	ft_append_node(t_stack **head_ref, int new_value, int new_index)
 {
-	stack *new_node;
-	stack *last;
+	t_stack	*new_node;
+	t_stack	*last;
 
 	new_node = NULL;
-	new_node = (stack*)malloc(sizeof(stack*));
+	new_node = (t_stack *)malloc(sizeof(t_stack *));
 	if (!new_node)
 		return ;
 	new_node->value = new_value;
@@ -47,21 +48,22 @@ void ft_append_node(stack **head_ref, int new_value, int new_index)
 	}
 	while (last->next)
 		last = last->next;
-	
 	last->next = new_node;
 }
-stack *last_node(stack **head_ref)
+
+t_stack	*last_node(t_stack **head_ref)
 {
-	stack	*last;
+	t_stack	*last;
 
 	last = *head_ref;
 	while (last->next != NULL)
 		last = last->next;
 	return (last);
 }
-stack *second_node(stack **head_ref)
+
+t_stack	*second_node(t_stack **head_ref)
 {
-	stack	*last;
+	t_stack	*last;
 
 	last = *head_ref;
 	if (last->next != NULL)
@@ -70,9 +72,10 @@ stack *second_node(stack **head_ref)
 		return (NULL);
 	return (last);
 }
-void delete_node(stack **head_ref,int s_index)
+
+void	delete_node(t_stack **head_ref, int s_index)
 {
-	stack *delete_node;
+	t_stack	*delete_node;
 
 	delete_node = (*head_ref);
 	if (delete_node == NULL || delete_node->index == s_index)

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../src/push_swap.h"
+#include "../src/push_swap.h"
 
 /* void ft_swap_all(stack **a, stack **b)
 {

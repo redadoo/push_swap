@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../src/push_swap.h"
+#include "../src/push_swap.h"
 
-void ft_swap_a(stack **a)
+void	ft_swap_a(t_stack **a)
 {
 	int		first_value;
 	int		second_value;
-	stack	*first_number;
-	stack	*second_number;
+	t_stack	*first_number;
+	t_stack	*second_number;
 
 	first_number = (*a);
 	second_number = second_node(a);
@@ -29,6 +29,7 @@ void ft_swap_a(stack **a)
 	second_number->value = first_value;
 	ft_printf("sa\n");
 }
+
 /* void ft_push_a(stack **a, stack **b)
 {
 	if (b == NULL)

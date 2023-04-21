@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../src/push_swap.h"
+#include "../src/push_swap.h"
 
-void insertion_sort(stack **a, size_t len_stack)
+void	insertion_sort(t_stack **a, size_t len_stack)
 {
-	stack	*_a;
-	stack	*_c;
+	t_stack	*_a;
+	t_stack	*_c;
 	size_t	_len;
 	size_t	_len2;
 
@@ -27,7 +27,7 @@ void insertion_sort(stack **a, size_t len_stack)
 		_c = _a;
 		while (_len)
 		{
-			if(_c != NULL && _c->next != NULL &&_c->value > _c->next->value)
+			if (_c != NULL && _c->next != NULL && _c->value > _c->next->value)
 				ft_swap_a(&_c);
 			_c = _c->next;
 			_len--;

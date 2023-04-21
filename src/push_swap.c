@@ -10,24 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
-int main(int argc,char **argv)
+int	main(int argc, char **argv)
 {
-	push_swap(argc,argv);
+	push_swap(argc, argv);
 }
 
-void push_swap(int argc,char **argv)
+void	push_swap(int argc, char **argv)
 {
-	stack *a;
-	size_t len_stack;
+	t_stack		*a;
+	size_t		len_stack;
 
-	a = ft_make_stack(argv,argc);
+	a = ft_make_stack(argv, argc);
 	len_stack = last_node(&a)->index;
-
 	if (len_stack < 100)
-	{
 		insertion_sort(&a, len_stack);
-	}
 	ft_print_stack(&a);
 }
