@@ -46,7 +46,7 @@ void	ft_append_node(t_stack **head_ref, int new_value, int new_index)
 		*head_ref = new_node;
 		return ;
 	}
-	while (last->next)
+	while (last->next != NULL)
 		last = last->next;
 	last->next = new_node;
 }

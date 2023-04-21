@@ -26,5 +26,7 @@ void	push_swap(int argc, char **argv)
 	len_stack = last_node(&a)->index;
 	if (len_stack < 100)
 		insertion_sort(&a, len_stack);
+	else
+		quick_sort();
 	ft_print_stack(&a);
 }
