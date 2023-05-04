@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:44:11 by evocatur          #+#    #+#             */
-/*   Updated: 2023/05/04 13:01:10 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/05/04 15:41:26 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_stack	*ft_make_stack(char **list, int len_list)
 		ft_append_node(&top, ft_atoi(list[i]), i - 1);
 		i++;
 	}
-	top->prev = last_node(&top);
+	top->prev = NULL;
 	return (top);
 }
 
