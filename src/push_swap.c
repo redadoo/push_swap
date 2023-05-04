@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:30 by evocatur          #+#    #+#             */
-/*   Updated: 2023/05/04 11:37:14 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/05/04 12:16:57 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	if (argc > 1)
-		push_swap(argc - 1, argv);
+	push_swap(argc, argv);
 }
 
 void	push_swap(int argc, char **argv)
@@ -26,10 +25,6 @@ void	push_swap(int argc, char **argv)
 
 	a = ft_make_stack(argv, argc);
 	len_stack = last_node(&a)->index;
-	ft_print_stack(&a);
 	if (len_stack < 100)
 		insertion_sort(&a, &b, len_stack);
-	else
-		quick_sort(&a, &b, len_stack);
-	ft_print_stack(&a);
 }

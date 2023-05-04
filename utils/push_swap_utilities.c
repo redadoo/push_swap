@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:43 by evocatur          #+#    #+#             */
-/*   Updated: 2023/04/20 16:02:25 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/05/04 12:13:34 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_print_stack(t_stack **head_ref)
 
 	last = *head_ref;
 	ft_printf("\n");
-	while (last)
+	while (last != NULL)
 	{
 		ft_printf("value : %i index : %i\n", last->value, last->index);
 		last = last->next;

@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:46:55 by evocatur          #+#    #+#             */
-/*   Updated: 2023/05/04 11:57:21 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/05/04 12:22:49 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int ft_ascending(t_stack **a)
     temp = *a;
     while (temp->next != NULL)
     {
-        if (temp->value <= temp->next->value)
+        if (temp->value >= temp->next->value)
             temp = temp->next;
         else
             return (0);
@@ -35,7 +35,7 @@ int ft_descending(t_stack **a)
     temp = *a;
     while (temp->next != NULL)
     {
-        if (temp->value >= temp->next->value && temp->value >= temp->next->value  )
+        if (temp->value >= temp->next->value)
             temp = temp->next;
         else
             return (0);

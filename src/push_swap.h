@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 10:51:18 by evocatur          #+#    #+#             */
-/*   Updated: 2023/05/04 11:54:53 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/05/04 12:38:13 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ void	insertion_sort(t_stack **a, t_stack **b, size_t len_stack);
 void	quick_sort(t_stack **a, t_stack **b, size_t len_stack);
 int		ft_descending(t_stack **a);
 int		ft_ascending(t_stack **a);
+t_stack	*prev_node(t_stack **head_ref, int index);
 
 #endif 

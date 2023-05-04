@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 14:45:13 by evocatur          #+#    #+#             */
-/*   Updated: 2023/05/04 11:55:28 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/05/04 12:23:51 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,12 @@ void	insertion_sort(t_stack **a, t_stack **b, size_t len_stack)
 	len = 0;
 	temp = 0;
 
-	if (ft_descending(a) == 1)
-		ft_printf("ciao");
-	
+ 	if (ft_descending(a) == 1)
+	{
+		while (len_stack)
+		{
+			
+			len_stack--;
+		}
+	}
 }

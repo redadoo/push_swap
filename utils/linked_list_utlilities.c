@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:44:11 by evocatur          #+#    #+#             */
-/*   Updated: 2023/04/20 15:43:39 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/05/04 12:37:59 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,18 @@ void	delete_node(t_stack **head_ref, int s_index)
 		delete_node = delete_node->next;
 	delete_node = NULL;
 	free (delete_node);
+}
+
+t_stack	*prev_node(t_stack **head_ref, int index)
+{
+	t_stack	*node;
+
+	node = (*head_ref);
+	if (node == NULL || node->index == s_index)
+	{
+		return ;
+	}
+	while (node->index != index)
+		node = node->next;
+	return (node);
 }
