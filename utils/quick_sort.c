@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evocatur <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:27:17 by evocatur          #+#    #+#             */
-/*   Updated: 2023/04/21 13:27:17 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/05/04 10:00:00 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void quick_sort(t_stack **a, t_stack **b, size_t len_stack)
 	t_stack	*_a;
 	t_stack	*_c;
 
+	b = NULL;
 	_len = len_stack;
 	_a = (*a);
 	while (len_stack)

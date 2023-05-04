@@ -6,13 +6,13 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:33:35 by evocatur          #+#    #+#             */
-/*   Updated: 2023/04/20 16:08:01 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/05/04 11:38:52 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src/push_swap.h"
 
-void	ft_swap_a(t_stack **a)
+void	ft_swap_sa(t_stack **a)
 {
 	int		first_value;
 	int		second_value;
@@ -27,21 +27,7 @@ void	ft_swap_a(t_stack **a)
 		return ;
 	first_number->value = second_value;
 	second_number->value = first_value;
-	ft_printf("sa\n");
-}
+	ft_printf("sa");
+	ft_print_stack(a);
 
-/* void ft_push_a(stack **a, stack **b)
-{
-	if (b == NULL)
-		return ;
-	ft_printf("pa\n");
 }
-void ft_rotate_a(stack **a)
-{
-	ft_printf("ra\n");
-}
-void ft_reverse_rotate_a(stack **a)
-{
-	ft_printf("rra\n");
-}
- */
