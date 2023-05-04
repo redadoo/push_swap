@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insertion_sort.c                                   :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 14:45:13 by evocatur          #+#    #+#             */
-/*   Updated: 2023/05/04 12:23:51 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/05/04 13:54:02 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src/push_swap.h"
 
-void	insertion_sort(t_stack **a, t_stack **b, size_t len_stack)
+void	sort(t_stack **a, t_stack **b, size_t len_stack)
 {
 	t_stack	*temp_a;
 	t_stack	*temp_b;
@@ -24,12 +24,9 @@ void	insertion_sort(t_stack **a, t_stack **b, size_t len_stack)
 	len = 0;
 	temp = 0;
 
- 	if (ft_descending(a) == 1)
+	while (temp_a->next != NULL)
 	{
-		while (len_stack)
-		{
-			
-			len_stack--;
-		}
+		if ()
 	}
+
 }

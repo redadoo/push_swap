@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 10:51:18 by evocatur          #+#    #+#             */
-/*   Updated: 2023/05/04 12:38:13 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/05/04 13:37:48 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_stack
 	int				value;
 	int				index;
 	struct s_stack	*next;
+	struct s_stack	*prev;
 }	t_stack;
 
 void	ft_append_node(t_stack **head_ref, int new_value, int new_index);
@@ -38,10 +39,11 @@ t_stack	*last_node(t_stack **head_ref);
 t_stack	*second_node(t_stack **head_ref);
 void	ft_swap_sa(t_stack **a);
 void	ft_push_b(t_stack **a, t_stack **b);
-void	insertion_sort(t_stack **a, t_stack **b, size_t len_stack);
+void	sort(t_stack **a, t_stack **b, size_t len_stack);
 void	quick_sort(t_stack **a, t_stack **b, size_t len_stack);
 int		ft_descending(t_stack **a);
 int		ft_ascending(t_stack **a);
 t_stack	*prev_node(t_stack **head_ref, int index);
+void	ft_rotate(t_stack **c);
 
 #endif 

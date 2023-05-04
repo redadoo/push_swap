@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:30 by evocatur          #+#    #+#             */
-/*   Updated: 2023/05/04 12:16:57 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/05/04 12:53:02 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	main(int argc, char **argv)
 {
-	push_swap(argc, argv);
+	if (argc >= 1)
+		push_swap(argc, argv);
 }
 
 void	push_swap(int argc, char **argv)

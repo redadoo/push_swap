@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:44:11 by evocatur          #+#    #+#             */
-/*   Updated: 2023/05/04 12:37:59 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/05/04 13:01:10 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_stack	*ft_make_stack(char **list, int len_list)
 		ft_append_node(&top, ft_atoi(list[i]), i - 1);
 		i++;
 	}
+	top->prev = last_node(&top);
 	return (top);
 }
 
@@ -47,8 +48,11 @@ void	ft_append_node(t_stack **head_ref, int new_value, int new_index)
 		return ;
 	}
 	while (last->next != NULL)
+	{
 		last = last->next;
+	}
 	last->next = new_node;
+	new_node->prev = last;
 }
 
 t_stack	*last_node(t_stack **head_ref)
@@ -94,10 +98,8 @@ t_stack	*prev_node(t_stack **head_ref, int index)
 	t_stack	*node;
 
 	node = (*head_ref);
-	if (node == NULL || node->index == s_index)
-	{
-		return ;
-	}
+	if (node == NULL || node->index == index)
+		return (NULL);
 	while (node->index != index)
 		node = node->next;
 	return (node);
