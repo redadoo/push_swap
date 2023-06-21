@@ -6,28 +6,36 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:33:35 by evocatur          #+#    #+#             */
-/*   Updated: 2023/05/04 11:38:52 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:02:36 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src/push_swap.h"
 
-void	ft_swap_sa(t_stack **a)
+void	ft_sa(t_stack **a)
 {
-	int		first_value;
-	int		second_value;
-	t_stack	*first_number;
-	t_stack	*second_number;
+	t_stack	*temp_a;
+	int		tmp;
 
-	first_number = (*a);
-	second_number = second_node(a);
-	second_value = second_number->value;
-	first_value = first_number->value;
-	if (second_number == NULL || first_number == NULL)
+	if(last_node(a)->index <= 1)
 		return ;
-	first_number->value = second_value;
-	second_number->value = first_value;
-	ft_printf("sa");
-	ft_print_stack(a);
+	temp_a = (*a);
+	tmp = temp_a->value;
+	temp_a->value = temp_a->next->value;
+	temp_a->next->value = tmp;
+	ft_printf("sa \n");
+}
 
+void	ft_pa(t_stack **a, t_stack **b)
+{
+	t_stack	*temp_a;
+	t_stack	*temp_b;
+
+	temp_a = (*a);
+	temp_b = (*b);
+
+	if(last_node(b)->index == 0)
+		return ;
+	
+	
 }

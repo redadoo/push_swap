@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 10:51:18 by evocatur          #+#    #+#             */
-/*   Updated: 2023/05/04 13:37:48 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:43:18 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,22 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
-void	ft_append_node(t_stack **head_ref, int new_value, int new_index);
-void	ft_print_stack(t_stack **head_ref);
-t_stack	*ft_make_stack(char **list, int len_list);
-void	ft_error(t_stack **head_ref);
-void	push_swap(int argc, char **argv);
-int		ft_check(char *s);
-t_stack	*last_node(t_stack **head_ref);
-t_stack	*second_node(t_stack **head_ref);
-void	ft_swap_sa(t_stack **a);
-void	ft_push_b(t_stack **a, t_stack **b);
-void	sort(t_stack **a, t_stack **b, size_t len_stack);
-void	quick_sort(t_stack **a, t_stack **b, size_t len_stack);
-int		ft_descending(t_stack **a);
-int		ft_ascending(t_stack **a);
-t_stack	*prev_node(t_stack **head_ref, int index);
-void	ft_rotate(t_stack **c);
+void		ft_append_node(t_stack **head_ref, int new_value, int new_index);
+void		ft_print_stack(t_stack **head_ref);
+t_stack		*ft_init_stack(char **list, int len_list);
+void		ft_error(t_stack **head_ref);
+void		push_swap(int argc, char **argv);
+int			ft_check(char *s);
+t_stack		*last_node(t_stack **head_ref);
+t_stack		*first_node(t_stack **head_ref);
+void		ft_sa(t_stack **a);
+void		ft_sb(t_stack **b);
+void    	ft_ss(t_stack **a, t_stack **b);
+void		ft_pa(t_stack **a, t_stack **b);
+void		small_sort(t_stack **a, t_stack **b, size_t len_stack);
+int			ft_descending(t_stack **a);
+int			ft_ascending(t_stack **a);
+t_stack		*prev_node(t_stack **head_ref, int index);
+void		delete_node(t_stack **head_ref, int s_index);
 
 #endif 

@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:43 by evocatur          #+#    #+#             */
-/*   Updated: 2023/05/04 12:13:34 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/06/21 14:38:23 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,14 @@ void	ft_print_stack(t_stack **head_ref)
 int	ft_check(char *s)
 {
 	if (ft_string_isdigit(s) == 0)
+	{
+		ft_printf("digit %i \n",ft_atoi(s));
 		return (0);
+	}
 	if (ft_atoi(s) <= -2147483648)
+	{
+		ft_printf("min %i \n",ft_atoi(s));
 		return (0);
+	}
 	return (1);
 }
