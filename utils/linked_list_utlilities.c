@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:44:11 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/21 16:32:31 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/06/21 16:36:37 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,13 @@ void	delete_node(t_stack **head_ref, int s_index)
 	delete_node = (*head_ref);
 	tmp_list = (*head_ref);
 
-	while (delete_node->index < s_index - 1)
-		delete_node = delete_node->next;
-	while (tmp_list->index < s_index - 1)
-		tmp_list = tmp_list->next;
+	if (s_index != 0)
+	{
+		while (delete_node->index < s_index - 1)
+			delete_node = delete_node->next;
+		while (tmp_list->index < s_index - 1)
+			tmp_list = tmp_list->next;
+	}
 	tmp_next = delete_node->next->next;
 	tmp_list->next = tmp_next;
 	tmp_list = tmp_list->next;

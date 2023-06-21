@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 14:45:13 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/21 16:32:57 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/06/21 16:34:09 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	small_sort(t_stack **a, t_stack **b, size_t len_stack)
 	temp_b = (*b);
 	
 	ft_print_stack(a);
-	delete_node(a,1);
+	delete_node(a,0);
 	ft_print_stack(a);
 	// while (temp_a->next != NULL)
 	// {
