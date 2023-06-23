@@ -24,8 +24,8 @@ void	push_swap(int argc, char **argv)
 	t_stack		*b;
 	size_t		len_stack;
 
-	b = ft_init_stack(NULL, 0);
 	a = ft_init_stack(argv, argc);
+	b = ft_init_stack(argv, 0);
 	//init stack b
 	len_stack = last_node(&a)->index;
 	ft_print_stack(&a);

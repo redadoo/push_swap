@@ -22,11 +22,11 @@ void	small_sort(t_stack **a, t_stack **b)
 	
 	counter = 0;
 
-	if(temp_a->value > last_node(a)->value)
-		ft_rra(a);
-	if (temp_a->value > temp_a->next->value)
-		ft_sa(a);
-	
+	if(temp_a->value > last_node(&temp_a)->value){
+		ft_rra(&temp_a);}
+	if (temp_a->value > temp_a->next->value){
+		ft_sa(&temp_a);}
+	ft_pb(&temp_a,&temp_b);
 	// if (temp_a->value > temp_a->next->value)
 	// 	ft_sa(&temp_a);
 	// if (temp_a->value < last_node(&temp_a)->value)

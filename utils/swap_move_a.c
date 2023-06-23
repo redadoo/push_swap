@@ -40,7 +40,8 @@ void	ft_pa(t_stack **a, t_stack **b)
 	push_node(&temp_a,temp_b->value);
 	delete_node(&temp_b,0);
 	ft_printf("pa \n");
-		ft_print_stack(a);	
+	ft_print_stack(a);	
+	ft_print_stack(b);	
 
 }
 

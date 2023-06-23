@@ -19,6 +19,11 @@ t_stack	*ft_init_stack(char **list, int len_list)
 
 	top = NULL;
 	i = 1;
+	if (len_list == 0)
+	{
+		ft_append_node(&top, 0);
+		return (top);
+	}
 	while (i < len_list)
 	{
 		if (ft_check(list[i]) == 0)
