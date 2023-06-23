@@ -24,9 +24,11 @@ void	push_swap(int argc, char **argv)
 	t_stack		*b;
 	size_t		len_stack;
 
+	b = ft_init_stack(NULL, 0);
 	a = ft_init_stack(argv, argc);
 	//init stack b
 	len_stack = last_node(&a)->index;
-	if (len_stack < 5)
-	 	small_sort(&a, &b, len_stack);
+	ft_print_stack(&a);
+	ft_rra(&a);
+	ft_print_stack(&a);
 }

@@ -26,6 +26,9 @@ CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -rf
 
+$(eval STACK = $(shell python stack_gen/stack_gen.py 10))
+MY_VAR := $(shell echo STACK )
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
@@ -38,27 +41,11 @@ $(OBJ): $(SRC)
 	@echo "     - Making object files..."
 	@gcc -c $(SRC)
 
-exe_small: all
-	@./$(NAME) -670 447 594 350 -323
+gen: all
+	@./$(NAME) $(STACK)
 
-exe_medium: all
-	@./$(NAME) 341 -693 -596 871 -705 -353 769 414 -983 770 -543 47 -362 -968 375 -657 824 382 449 276
-
-gen 10: all
-	STACK := $(shell python stack_gen/stack_gen.py 10)
-	@./$(NAME) STACK
-
-gen 100: all
-	STACK := $(shell python stack_gen/stack_gen.py 100)
-	@./$(NAME) STACK
-
-gen 1000: all
-	STACK := $(shell python stack_gen/stack_gen.py 1000)
-	@./$(NAME) STACK
-
-gen 10000: all
-	STACK := $(shell python stack_gen/stack_gen.py 10000)
-	@./$(NAME) STACK
+test: all
+	@./$(NAME) 1 2 3 4 5 6
 
 clean: 
 	@${RM} ${OBJ}

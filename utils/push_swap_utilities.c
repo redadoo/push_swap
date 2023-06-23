@@ -27,17 +27,19 @@ void	ft_error(t_stack **head_ref)
 	exit(0);
 }
 
-void	ft_print_stack(t_stack **head_ref)
+void	ft_print_stack(t_stack **a)
 {
-	t_stack	*last;
+	t_stack	*last_a;
 
-	last = *head_ref;
-	ft_printf("\n");
-	while (last != NULL)
+	last_a = *a;
+	ft_printf(" Stack A\n");
+	ft_printf("----------------------------------- \n");
+	while (last_a != NULL)
 	{
-		ft_printf("value : %i index : %i\n", last->value, last->index);
-		last = last->next;
+		ft_printf("| value : %i index : %i | \n", last_a->value, last_a->index);
+		last_a = last_a->next;
 	}
+	ft_printf("----------------------------------- \n");
 }
 
 int	ft_check(char *s)

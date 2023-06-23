@@ -25,30 +25,30 @@ t_stack	*ft_init_stack(char **list, int len_list)
 		{
 			ft_error(&top);
 		}
-		ft_append_node(&top, ft_atoi(list[i]), i - 1);
+		ft_append_node(&top, ft_atoi(list[i]));
 		i++;
 	}
 	return (top);
 }
 
-void	ft_append_node(t_stack **head_ref, int new_value, int new_index)
+void	ft_append_node(t_stack **head_ref, int new_value)
 {
 	t_stack	*new_node;
 	t_stack	*last;
 
 	new_node = NULL;
-	new_node = (t_stack *)malloc(sizeof(t_stack *));
+	new_node = malloc(sizeof(t_stack *));
 	if (!new_node)
 		return ;
 		
 	new_node->value = new_value;
-	new_node->index = new_index;
 	new_node->next = NULL;
 	new_node->prev = NULL;
 
 	last = *head_ref;
 	if (*head_ref == NULL)
 	{
+		new_node->index = 0;
 		*head_ref = new_node;
 		return ;
 	}
@@ -58,6 +58,7 @@ void	ft_append_node(t_stack **head_ref, int new_value, int new_index)
 	}
 	last->next = new_node;
 	new_node->prev = last;
+	new_node->index = last->index + 1;
 }
 
 t_stack	*last_node(t_stack **head_ref)
@@ -70,49 +71,89 @@ t_stack	*last_node(t_stack **head_ref)
 	return (last);
 }
 
-t_stack	*first_node(t_stack **head_ref)
+int	find_node(t_stack **head_ref,int x, char c)
 {
-	t_stack	*last;
+	t_stack	*find;
 
-	last = *head_ref;
-	return (last);
+	find = (*head_ref);
+
+	if(c == 'i')
+	{
+		while(find->next != NULL && find->value != x)
+			find = find->next;
+		if (find->value != x)
+			return (-1);
+		return (find->index);
+	}
+	else if(c == 'v')
+	{
+		while(find->next != NULL && find->index != x)
+			find = find->next;
+		if (find->index != x)
+			return (-1);
+		return (find->value);
+	}
 }
 
 void	delete_node(t_stack **head_ref, int s_index)
 {
-	t_stack	*delete_node;
-	t_stack	*tmp_list;
-	t_stack	*tmp_next;
+	t_stack	*prev;
+	t_stack	*temp;
 
-	delete_node = (*head_ref);
-	tmp_list = (*head_ref);
+ 	temp = (*head_ref);
 
-	if (s_index != 0)
+	if (temp != NULL && temp->index == s_index) 
 	{
-		while (delete_node->index < s_index - 1)
-			delete_node = delete_node->next;
-		while (tmp_list->index < s_index - 1)
-			tmp_list = tmp_list->next;
+		(*head_ref) = (*head_ref)->next;
+		(*head_ref)->prev = NULL;
+		free(temp);
 	}
-	tmp_next = delete_node->next->next;
-	tmp_list->next = tmp_next;
-	tmp_list = tmp_list->next;
-	while (tmp_list->next != NULL)
+ 	else
 	{
-		tmp_list->index -= 1;
-		tmp_list = tmp_list->next;
+		while (temp != NULL && temp->index != s_index) 
+		{
+			prev = temp;
+			temp = temp->next;
+		}
+
+		if (temp == NULL)
+			return;
+
+		prev->next = temp->next;
+		temp->next->prev = prev;
+		free(temp);
 	}
-	tmp_list->index -= 1;
+	temp = (*head_ref);
+	while(temp->next != NULL && temp->index < s_index)
+	{
+		temp = temp->next;
+	}
+	while(temp->next != NULL)
+	{
+		temp->index -= 1;
+		temp = temp->next;
+	}
+	temp->index -= 1;
 }
 
-t_stack	*prev_node(t_stack **head_ref, int index)
+void	push_node(t_stack **head_ref, int value)
 {
-	t_stack	*node;
+	t_stack	*new_node;
+ 
+	new_node = (t_stack *)malloc(sizeof(t_stack *));
+	if (new_node == NULL)
+		return ;
+	new_node->value = value;
+	new_node->next = (*head_ref);
+	(*head_ref) = new_node;
 
-	node = (*head_ref);
-	if (node == NULL || node->index == index)
-		return (NULL);
-	while (node->index != index)
-		node = node->next;
-	return (node);
+	new_node = (*head_ref)->next;
+
+	while(new_node->next != NULL)
+	{
+		new_node->index += 1;
+		new_node = new_node->next;
+	}
+	new_node->index += 1;
 }
+

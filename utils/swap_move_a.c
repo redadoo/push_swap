@@ -33,9 +33,34 @@ void	ft_pa(t_stack **a, t_stack **b)
 
 	temp_a = (*a);
 	temp_b = (*b);
-
 	if(last_node(b)->index == 0)
 		return ;
-	
-	
+	push_node(&temp_a,temp_b->value);
+	delete_node(&temp_b,0);
 }
+
+void ft_ra(t_stack **a)
+{
+	t_stack	*temp_a;
+
+	temp_a = (*a);
+
+	ft_append_node(a, temp_a->value);
+	delete_node(a, 0);
+}
+
+void ft_rra(t_stack **a)
+{
+	t_stack	*temp_a;
+
+	temp_a = (*a);
+
+	push_node(a, last_node(a)->value);
+	while(temp_a->next != NULL)
+	{
+		temp_a = temp_a->next;
+	}
+	temp_a->prev->next = NULL;
+	free(temp_a);
+}
+

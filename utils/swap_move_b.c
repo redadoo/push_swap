@@ -25,3 +25,41 @@ void	ft_sb(t_stack **b)
 	temp_b->next->value = tmp;
 	ft_printf("sb \n");
 }
+
+void	ft_pb(t_stack **a, t_stack **b)
+{
+	t_stack	*temp_a;
+	t_stack	*temp_b;
+
+	temp_a = (*a);
+	temp_b = (*b);
+	if(last_node(a)->index == 0)
+		return ;
+	push_node(&temp_b,temp_a->value);
+	delete_node(&temp_a,0);
+}
+
+void ft_rb(t_stack **b)
+{
+	t_stack	*temp_b;
+
+	temp_b = (*b);
+
+	ft_append_node(b, temp_b->value);
+	delete_node(b, 0);
+}
+
+void ft_rrb(t_stack **b)
+{
+	t_stack	*temp_b;
+
+	temp_b = (*b);
+
+	push_node(b, last_node(b)->value);
+	while(temp_b->next != NULL)
+	{
+		temp_b = temp_b->next;
+	}
+	temp_b->prev->next = NULL;
+	free(temp_b);
+}

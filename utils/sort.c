@@ -20,13 +20,9 @@ void	small_sort(t_stack **a, t_stack **b, size_t len_stack)
 	temp_a = (*a);
 	temp_b = (*b);
 	
-	ft_print_stack(a);
-	delete_node(a,0);
-	ft_print_stack(a);
-	// while (temp_a->next != NULL)
-	// {
-	// 	ft_printf(" %i \n" ,temp_a->value);
-	// 	temp_a = temp_a->next; 
-	// }
+	while(temp_a->next != NULL)
+	{
+		temp_a = temp_a->next;
+	}
 	
 }
