@@ -32,7 +32,7 @@ void	ft_print_stack(t_stack **a)
 	t_stack	*last_a;
 
 	last_a = *a;
-	ft_printf(" Stack A\n");
+	ft_printf(" Stack\n");
 	ft_printf("----------------------------------- \n");
 	while (last_a != NULL)
 	{

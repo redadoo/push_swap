@@ -12,17 +12,24 @@
 
 #include "../src/push_swap.h"
 
-void	small_sort(t_stack **a, t_stack **b, size_t len_stack)
+void	small_sort(t_stack **a, t_stack **b)
 {
 	t_stack	*temp_a;
 	t_stack	*temp_b;
-
+	int		counter;
 	temp_a = (*a);
 	temp_b = (*b);
 	
-	while(temp_a->next != NULL)
-	{
-		temp_a = temp_a->next;
-	}
+	counter = 0;
+
+	if(temp_a->value > last_node(a)->value)
+		ft_rra(a);
+	if (temp_a->value > temp_a->next->value)
+		ft_sa(a);
 	
+	// if (temp_a->value > temp_a->next->value)
+	// 	ft_sa(&temp_a);
+	// if (temp_a->value < last_node(&temp_a)->value)
+	// 	ft_ra(&temp_a);
+
 }

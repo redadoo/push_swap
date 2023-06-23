@@ -24,6 +24,8 @@ void	ft_sa(t_stack **a)
 	temp_a->value = temp_a->next->value;
 	temp_a->next->value = tmp;
 	ft_printf("sa \n");
+		ft_print_stack(a);	
+
 }
 
 void	ft_pa(t_stack **a, t_stack **b)
@@ -37,6 +39,9 @@ void	ft_pa(t_stack **a, t_stack **b)
 		return ;
 	push_node(&temp_a,temp_b->value);
 	delete_node(&temp_b,0);
+	ft_printf("pa \n");
+		ft_print_stack(a);	
+
 }
 
 void ft_ra(t_stack **a)
@@ -47,6 +52,9 @@ void ft_ra(t_stack **a)
 
 	ft_append_node(a, temp_a->value);
 	delete_node(a, 0);
+	ft_printf("ra \n");
+		ft_print_stack(a);	
+
 }
 
 void ft_rra(t_stack **a)
@@ -62,5 +70,7 @@ void ft_rra(t_stack **a)
 	}
 	temp_a->prev->next = NULL;
 	free(temp_a);
+	ft_printf("rra \n");
+	ft_print_stack(a);	
 }
 

@@ -41,7 +41,7 @@ void		ft_sa(t_stack **a);
 void		ft_sb(t_stack **b);
 void    	ft_ss(t_stack **a, t_stack **b);
 void		ft_pa(t_stack **a, t_stack **b);
-void		small_sort(t_stack **a, t_stack **b, size_t len_stack);
+void		small_sort(t_stack **a, t_stack **b);
 int			ft_descending(t_stack **a);
 int			ft_ascending(t_stack **a);
 t_stack		*prev_node(t_stack **head_ref, int index);
