@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:30 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/21 14:59:11 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/06/25 18:54:37 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	if (argc >= 1)
+	if (argc >= 2)
 		push_swap(argc, argv);
 }
 
@@ -26,8 +26,6 @@ void	push_swap(int argc, char **argv)
 
 	a = ft_init_stack(argv, argc);
 	b = ft_init_stack(argv, 0);
-	//init stack b
-	len_stack = last_node(&a)->index;
 	small_sort(&a,&b);
   //ft_print_stack(&b);
 }

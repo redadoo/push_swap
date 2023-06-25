@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_move_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 18:05:38 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/21 15:02:46 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/06/25 18:44:16 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,10 @@ void	ft_pb(t_stack **a, t_stack **b)
 	t_stack	*temp_a;
 	t_stack	*temp_b;
 
-	//if(last_node(b)->index <= 1)
-	//	return ;
-  push_node(b,(*a)->value);	
-  delete_node(a,0);
-  temp_a = (*a);
-  while(temp_a->next != NULL)
-  {
-    temp_a->index -= 1;
-    temp_a = temp_a->next;
-  }
-  temp_a->index -= 1;
-  ft_printf("pb \n");	
+	push_node(b,(*a)->value);	
+	delete_node(a,0);
+	temp_a = (*a);
+	ft_printf("pb \n");	
 }
 
 void ft_rb(t_stack **b)
