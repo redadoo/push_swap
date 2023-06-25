@@ -28,6 +28,6 @@ void	push_swap(int argc, char **argv)
 	b = ft_init_stack(argv, 0);
 	//init stack b
 	len_stack = last_node(&a)->index;
-	ft_print_stack(&a);
 	small_sort(&a,&b);
+  //ft_print_stack(&b);
 }

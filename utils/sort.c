@@ -14,22 +14,34 @@
 
 void	small_sort(t_stack **a, t_stack **b)
 {
-	t_stack	*temp_a;
-	t_stack	*temp_b;
-	int		counter;
-	temp_a = (*a);
+	t_stack *temp_a;
+	t_stack *temp_b;
+	int     counter;
+	
+  temp_a = (*a);
 	temp_b = (*b);
 	
 	counter = 0;
 
-	if(temp_a->value > last_node(&temp_a)->value){
-		ft_rra(&temp_a);}
-	if (temp_a->value > temp_a->next->value){
-		ft_sa(&temp_a);}
-	ft_pb(&temp_a,&temp_b);
-	// if (temp_a->value > temp_a->next->value)
-	// 	ft_sa(&temp_a);
-	// if (temp_a->value < last_node(&temp_a)->value)
-	// 	ft_ra(&temp_a);
-
+  //printf("NEGRO \n");
+	while (last_node(&temp_a)->index != 1)
+  {
+    if (temp_a->value < temp_a->next->value)
+    {
+      printf(" \n primo if");
+      ft_sa(&temp_a);
+      ft_print_stack(&temp_a);
+      ft_pb(&temp_a, &temp_b);
+      ft_print_stack(&temp_a);
+    }
+    else if(temp_a->value > temp_a->next->value)
+    {
+      printf(" \n secondo if");
+      ft_pb(&temp_a, &temp_b);
+      ft_print_stack(&temp_a);
+    }
+    //temp_a = temp_a->next;
+  }
+  printf("\n    STACK B    \n");
+  ft_print_stack(&temp_b);
 }

@@ -26,7 +26,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -rf
 
-$(eval STACK = $(shell python stack_gen/stack_gen.py 10))
+$(eval STACK = $(shell python3 stack_gen/stack_gen.py 10))
 MY_VAR := $(shell echo STACK )
 
 all: $(NAME)

@@ -32,15 +32,18 @@ void	ft_pb(t_stack **a, t_stack **b)
 	t_stack	*temp_a;
 	t_stack	*temp_b;
 
-	temp_a = (*a);
-	temp_b = (*b);
-	if(last_node(a)->index == 0)
-		return ;
-	push_node(&temp_b,temp_a->value);
-	delete_node(&temp_a,0);
-	ft_printf("pb \n");
-	ft_print_stack(&temp_a);	
-	ft_print_stack(&temp_b);	
+	//if(last_node(b)->index <= 1)
+	//	return ;
+  push_node(b,(*a)->value);	
+  delete_node(a,0);
+  temp_a = (*a);
+  while(temp_a->next != NULL)
+  {
+    temp_a->index -= 1;
+    temp_a = temp_a->next;
+  }
+  temp_a->index -= 1;
+  ft_printf("pb \n");	
 }
 
 void ft_rb(t_stack **b)
