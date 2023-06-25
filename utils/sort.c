@@ -23,7 +23,6 @@ void	small_sort(t_stack **a, t_stack **b)
 	
 	counter = 0;
 
-  //printf("NEGRO \n");
 	while (last_node(&temp_a)->index != 1)
   {
     if (temp_a->value < temp_a->next->value)
