@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:30 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/25 18:54:37 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/06/26 20:00:19 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,4 @@ void	push_swap(int argc, char **argv)
 	a = ft_init_stack(argv, argc);
 	b = ft_init_stack(argv, 0);
 	small_sort(&a,&b);
-  //ft_print_stack(&b);
 }

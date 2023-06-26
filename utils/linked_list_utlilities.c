@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linked_list_utlilities.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:44:11 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/21 16:36:37 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/06/26 13:14:14 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ t_stack	*ft_init_stack(char **list, int len_list)
 	i = 1;
 	if (len_list == 0)
 	{
-		ft_append_node(&top, 0);
+		top = malloc(sizeof(t_stack *));
+		if (!top)
+			return (NULL);
+			top->index = -1;
 		return (top);
 	}
 	while (i < len_list)
@@ -144,21 +147,33 @@ void	delete_node(t_stack **head_ref, int s_index)
 void	push_node(t_stack **head_ref, int value)
 {
 	t_stack	*new_node;
- 
+ 	t_stack	*tmp_node;
+	int		index;
+
 	new_node = (t_stack *)malloc(sizeof(t_stack *));
 	if (new_node == NULL)
 		return ;
-	new_node->value = value;
-	new_node->next = (*head_ref);
-	(*head_ref) = new_node;
-
-	new_node = (*head_ref)->next;
-
-	while(new_node->next != NULL)
+	if ((*head_ref)->index == -1)
 	{
-		new_node->index += 1;
-		new_node = new_node->next;
+		new_node->index = 0;
+		new_node->value = value;
+		new_node->next = NULL;
+		new_node->prev = NULL;
+		(*head_ref) = new_node;
 	}
-	new_node->index += 1;
+	else
+	{
+		new_node->index = (*head_ref)->index;
+		new_node->value = value;
+		new_node->next = (*head_ref);
+		(*head_ref) = new_node;
+		tmp_node = (*head_ref);
+		tmp_node = tmp_node->next;
+		while (tmp_node != NULL)
+		{
+			tmp_node->index += 1; 
+			tmp_node = tmp_node->next;
+		}
+	}
 }
 

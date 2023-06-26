@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_move_a.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:33:35 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/21 15:02:36 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/06/26 19:13:10 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ void	ft_sa(t_stack **a)
 {
 	t_stack *temp_a;
 	int      tmp;
-  int     tmp_index;
+  	int     tmp_index;
 
 	if(last_node(a)->index <= 0)
 		return ;
 	temp_a = (*a);
 	tmp = temp_a->value;
-  tmp_index = temp_a->index;
+    tmp_index = temp_a->index;
 	temp_a->value = temp_a->next->value;
 	temp_a->next->value = tmp;
-  ft_printf("sa \n");	
+ 	ft_printf("sa \n");	
 }
 
 void	ft_pa(t_stack **a, t_stack **b)
@@ -51,8 +51,6 @@ void ft_ra(t_stack **a)
 	ft_append_node(a, temp_a->value);
 	delete_node(a, 0);
 	ft_printf("ra \n");
-		ft_print_stack(a);	
-
 }
 
 void ft_rra(t_stack **a)
@@ -69,6 +67,5 @@ void ft_rra(t_stack **a)
 	temp_a->prev->next = NULL;
 	free(temp_a);
 	ft_printf("rra \n");
-	ft_print_stack(a);	
 }
 

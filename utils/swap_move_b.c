@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 18:05:38 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/25 18:44:16 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/06/25 20:11:56 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	ft_pb(t_stack **a, t_stack **b)
 
 	push_node(b,(*a)->value);	
 	delete_node(a,0);
-	temp_a = (*a);
 	ft_printf("pb \n");	
 }
 

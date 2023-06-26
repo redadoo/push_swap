@@ -4,8 +4,8 @@ This project involves sorting data on a stack, with a limited set of instruction
 
 The instructions allowed are described as follows, as written in our task:
 
-- sa : swap a - Swap the first 2 elements at the top of stack A. Do nothing if there is only one or no elements).
-- sb : swap b - Swap the first 2 elements at the top of stack B. Do nothing if there is only one or no elements).
+- sa : swap a - Swap the first 2 elements at the top of stack A. (Do nothing if there is only one or no elements).
+- sb : swap b - Swap the first 2 elements at the top of stack B. (Do nothing if there is only one or no elements).
 
 - ss : sa and sb at the same time.
 
