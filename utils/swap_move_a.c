@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:33:35 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/27 13:31:54 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/06/27 14:28:00 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,8 @@ void ft_rra(t_stack **a)
 
 	temp_a = (*a);
 
-	push_node(a, last_node(a)->value);
-	while(temp_a->next != NULL)
-	{
-		temp_a = temp_a->next;
-	}
-	temp_a->prev->next = NULL;
-	free(temp_a);
+	push_node(a, last_node(&temp_a)->value);
+	delete_node(a, last_node(&temp_a)->index - 1);
 	ft_printf("rra\n");
 }
 
