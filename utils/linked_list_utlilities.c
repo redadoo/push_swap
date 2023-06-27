@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linked_list_utlilities.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:44:11 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/26 13:14:14 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/06/27 13:10:00 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,6 @@ t_stack	*ft_init_stack(char **list, int len_list)
 	}
 	while (i < len_list)
 	{
-		if (ft_check(list[i]) == 0)
-		{
-			ft_error(&top);
-		}
 		ft_append_node(&top, ft_atoi(list[i]));
 		i++;
 	}
@@ -53,13 +49,13 @@ void	ft_append_node(t_stack **head_ref, int new_value)
 	new_node->next = NULL;
 	new_node->prev = NULL;
 
-	last = *head_ref;
 	if (*head_ref == NULL)
 	{
 		new_node->index = 0;
 		*head_ref = new_node;
 		return ;
 	}
+	last = *head_ref;
 	while (last->next != NULL)
 	{
 		last = last->next;
@@ -101,6 +97,7 @@ int	find_node(t_stack **head_ref,int x, char c)
 			return (-1);
 		return (find->value);
 	}
+	return (0);
 }
 
 void	delete_node(t_stack **head_ref, int s_index)
@@ -110,23 +107,20 @@ void	delete_node(t_stack **head_ref, int s_index)
 
  	temp = (*head_ref);
 
-	if (temp != NULL && temp->index == s_index) 
+	if (temp != NULL && s_index == 0) 
 	{
 		(*head_ref) = (*head_ref)->next;
-		(*head_ref)->prev = NULL;
 		free(temp);
 	}
- 	else
+ 	else if(s_index != 0)
 	{
 		while (temp != NULL && temp->index != s_index) 
 		{
 			prev = temp;
 			temp = temp->next;
 		}
-
 		if (temp == NULL)
 			return;
-
 		prev->next = temp->next;
 		temp->next->prev = prev;
 		free(temp);
@@ -176,4 +170,5 @@ void	push_node(t_stack **head_ref, int value)
 		}
 	}
 }
+
 

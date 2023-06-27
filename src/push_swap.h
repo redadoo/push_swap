@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 10:51:18 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/21 15:43:18 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/06/27 12:24:37 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,7 @@ void		ft_rb(t_stack **b);
 void		ft_pb(t_stack **a, t_stack **b);
 void		ft_rr(t_stack **a, t_stack **b);
 void    	ft_rrr(t_stack **a, t_stack **b);
+int			ft_check_stack(char **list);
+int			ft_double_check(char **list);
+void		ft_free_all(t_stack **a, t_stack **b);
 #endif 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utilities.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:43 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/25 22:46:05 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/06/27 13:07:18 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,56 @@ int	ft_check(char *s)
 {
 	if (ft_string_isdigit(s) == 0)
 	{
-		ft_printf("digit %i \n",ft_atoi(s));
 		return (0);
 	}
-	if (ft_atoi(s) <= -2147483648)
+	if (ft_atoi(s) <= -2147483648 || ft_atoi(s) >= 2147483647)
 	{
-		ft_printf("min %i \n",ft_atoi(s));
 		return (0);
 	}
 	return (1);
+}
+
+int	ft_check_stack(char **list)
+{
+	int		i;
+
+	i = 1;
+	if(!list)
+	{
+		write(2,"Error\n",7);
+		return (0);
+	}
+	while (list[i])
+	{
+		if(ft_check(list[i]) == 0)
+		{
+			write(2,"Error\n",7);
+			return (0);
+		}
+		i++;
+	}
+	if (i <= 2)
+	{
+		write(2,"Error\n",7);
+		return (0);
+	}
+	if (ft_double_check(list) == 0)
+	{
+		write(2,"Error\n",7);
+		return (0);
+	}
+	return (1);
+}
+
+void	ft_free_all(t_stack **a, t_stack **b)
+{
+	t_stack	*tmp;
+
+	while (*a != NULL)
+	{
+		tmp = *a;
+		(*a) = (*a)->next;
+		free(tmp);
+		tmp = NULL;
+	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_move_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 18:05:38 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/25 20:11:56 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/06/27 13:10:22 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_sb(t_stack **b)
 	tmp = temp_b->value;
 	temp_b->value = temp_b->next->value;
 	temp_b->next->value = tmp;
-	ft_printf("sb \n");
+	ft_printf("sb\n");
 	ft_print_stack(b);	
 }
 
@@ -34,7 +34,7 @@ void	ft_pb(t_stack **a, t_stack **b)
 
 	push_node(b,(*a)->value);	
 	delete_node(a,0);
-	ft_printf("pb \n");	
+	ft_printf("pb\n");	
 }
 
 void ft_rb(t_stack **b)
@@ -45,7 +45,7 @@ void ft_rb(t_stack **b)
 
 	ft_append_node(b, temp_b->value);
 	delete_node(b, 0);
-	ft_printf("rb \n");
+	ft_printf("rb\n");
 	ft_print_stack(b);	
 }
 
@@ -62,6 +62,6 @@ void ft_rrb(t_stack **b)
 	}
 	temp_b->prev->next = NULL;
 	free(temp_b);
-	ft_printf("rrb \n");
+	ft_printf("rrb\n");
 	ft_print_stack(b);
 }
