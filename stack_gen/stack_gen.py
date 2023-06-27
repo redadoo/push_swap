@@ -2,10 +2,9 @@ import random
 import sys
 
 stack = []
-
-for i in range(int(sys.argv[1])):
-    #stack.append(random.randint(-2147483648,2147483646))
-    stack.append(random.randint(-100,100))
+while (len(stack) < int(sys.argv[1])):
+        stack.append(random.randint(-2147483646,2147483646))
+        stack = list(set(stack))
 
 result = ' '.join(str(item) for item in stack)
 print(result) 
