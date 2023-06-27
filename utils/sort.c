@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 14:45:13 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/27 13:12:53 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/06/27 14:10:56 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	small_sort(t_stack **a, t_stack **b)
 
 	temp_a = (*a);
 	temp_b = (*b);
-	index = last_node(&temp_a)->index;
-	while (ft_ascending(&temp_a) != 1)
+	index = 0;
+	while (ft_ascending(&temp_a) != 1)	
 	{
 		len = last_node(&temp_a)->index;
 		while (len)
@@ -30,14 +30,18 @@ void	small_sort(t_stack **a, t_stack **b)
 		 	if (temp_a->value < temp_a->next->value)
 			{
 				ft_ra(&temp_a);
+				index += 1;
 			}
 		 	else if (temp_a->value > temp_a->next->value)
 		 	{
 				ft_sa(&temp_a);
 				ft_ra(&temp_a);
+				index += 2;
 			}
 		 	len--;
 		}
 		ft_ra(&temp_a);
+		index += 1;
 	}
+	printf(" %i  \n", index);
 }

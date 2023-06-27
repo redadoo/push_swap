@@ -6,7 +6,7 @@
 #    By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/19 15:41:17 by evocatur          #+#    #+#              #
-#    Updated: 2023/06/27 13:16:08 by evocatur         ###   ########.fr        #
+#    Updated: 2023/06/27 13:55:41 by evocatur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,9 +45,9 @@ gen: all
 	@./$(NAME) $(STACK)
 
 test: all
-	@./$(NAME) "123 1 2" "654 456 123"
+	@./$(NAME) 4 67 3 87 23
 leaks: all
-	@leaks --atExit -- ./$(NAME) $(STACK)
+	@leaks --groupByType --atExit -- ./$(NAME) $(STACK)
 
 clean: 
 	@${RM} ${OBJ}

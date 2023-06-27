@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:43 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/27 13:07:18 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/06/27 14:03:17 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,6 @@ void	ft_free_all(t_stack **a, t_stack **b)
 		free(tmp);
 		tmp = NULL;
 	}
+	if ((*b)->index == -1)
+		free((*b));
 }
