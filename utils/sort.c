@@ -53,6 +53,7 @@ void	sort(t_stack **a, t_stack **b)
 	temp_a = (*a);
 	temp_b = (*b);
 
+	pivot = 0;
 	index = last_node(&temp_a)->index / 2;
 	while (index + 1)
 	{
@@ -61,4 +62,27 @@ void	sort(t_stack **a, t_stack **b)
 	}
 	ft_print_stack(&temp_a);
 	ft_print_stack(&temp_b);
+	while (ft_ascending(&temp_a) != 1)
+	{
+		if (pivot == 100)
+			break;
+
+		index = temp_a->index;
+		if (temp_a->value < temp_a->next->value)
+		{
+			if (index == 0)
+				ft_sa(&temp_a,1);
+			else
+			{
+				while (index)
+				{
+					ft_ra(&temp_a,1);
+					index--;
+				}
+			}
+		}
+		temp_a = temp_a->next;
+		pivot++;
+	}
+	ft_print_stack(a);
 }
