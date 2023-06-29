@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+         #
+#    By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/19 15:41:17 by evocatur          #+#    #+#              #
-#    Updated: 2023/06/27 14:24:11 by evocatur         ###   ########.fr        #
+#    Updated: 2023/06/28 19:23:04 by edoardo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ gen: all
 	@./$(NAME) $(STACK)
 
 test: all
-	@./$(NAME) 4 67 3 87 23
+	@./$(NAME) 9 1 2 3 4 5  
 leaks: all
 	@leaks --groupByType --atExit -- ./$(NAME) $(STACK)
 

@@ -3,65 +3,66 @@
 /*                                                        :::      ::::::::   */
 /*   swap_move_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 18:05:38 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/27 13:10:22 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/06/28 20:34:55 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src/push_swap.h"
 
-void	ft_sb(t_stack **b)
+void	ft_sb(t_stack **b, int i)
 {
 	t_stack	*temp_b;
-	int		tmp;
+	int      tmp;
+  	int     tmp_index;
 
-	if(last_node(b)->index <= 1)
+	if(last_node(b)->index <= 0)
 		return ;
 	temp_b = (*b);
 	tmp = temp_b->value;
+    tmp_index = temp_b->index;
 	temp_b->value = temp_b->next->value;
 	temp_b->next->value = tmp;
-	ft_printf("sb\n");
-	ft_print_stack(b);	
+	if (i == 1)
+		ft_printf("sb\n");
 }
 
-void	ft_pb(t_stack **a, t_stack **b)
+void	ft_pb(t_stack **a, t_stack **b, int i)
 {
 	t_stack	*temp_a;
 	t_stack	*temp_b;
 
 	push_node(b,(*a)->value);	
 	delete_node(a,0);
-	ft_printf("pb\n");	
+	if (i == 1)
+		ft_printf("pb\n");
 }
 
-void ft_rb(t_stack **b)
+void ft_rb(t_stack **b, int i)
 {
 	t_stack	*temp_b;
+	int 	len;
 
 	temp_b = (*b);
+	len = temp_b->value;
 
-	ft_append_node(b, temp_b->value);
 	delete_node(b, 0);
-	ft_printf("rb\n");
-	ft_print_stack(b);	
+	ft_append_node(b, len);
+	if (i == 1)
+		ft_printf("rb\n");
 }
 
-void ft_rrb(t_stack **b)
+void ft_rrb(t_stack **b, int i)
 {
 	t_stack	*temp_b;
+	int 	len;
 
 	temp_b = (*b);
-
-	push_node(b, last_node(b)->value);
-	while(temp_b->next != NULL)
-	{
-		temp_b = temp_b->next;
-	}
-	temp_b->prev->next = NULL;
-	free(temp_b);
-	ft_printf("rrb\n");
-	ft_print_stack(b);
+	len = last_node(b)->value;
+	delete_node(b, last_node(b)->index);
+	push_node(b, len);
+	if (i == 1)
+		ft_printf("rrb\n");
 }

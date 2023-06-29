@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linked_list_utlilities.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:44:11 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/27 13:40:12 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/06/28 19:49:47 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,14 +104,15 @@ void	delete_node(t_stack **head_ref, int s_index)
 {
 	t_stack	*prev;
 	t_stack	*temp;
+	int		tmp;
 
  	temp = (*head_ref);
-
+	tmp = last_node(&temp)->index;
 	if (temp != NULL && s_index == 0) 
 		(*head_ref) = (*head_ref)->next;
  	else if (s_index != 0)
 	{
-		while (temp != NULL && temp->index != s_index) 
+		while (temp->next != NULL && temp->index < s_index) 
 		{
 			prev = temp;
 			temp = temp->next;
@@ -119,7 +120,8 @@ void	delete_node(t_stack **head_ref, int s_index)
 		if (temp == NULL)
 			return;
 		prev->next = temp->next;
-		temp->next->prev = prev;
+		if (temp->next != NULL)
+			temp->next->prev = prev;
 	}
 	temp = NULL;
 	free(temp);
@@ -131,7 +133,8 @@ void	delete_node(t_stack **head_ref, int s_index)
 		temp->index -= 1;
 		temp = temp->next;
 	}
-	temp->index -= 1;
+	if (s_index != tmp)
+		temp->index -= 1;
 }
 
 void	push_node(t_stack **head_ref, int value)
@@ -167,4 +170,20 @@ void	push_node(t_stack **head_ref, int value)
 	}
 }
 
+int	range_smallest(t_stack **head_ref)
+{
+	t_stack *tmp;
+	int		range;
 
+	tmp = (*head_ref);
+	range = 0;
+	while (tmp->next != NULL)
+	{
+		if (tmp->value < tmp->next->value)
+			range++;
+		else
+			break ;
+		tmp = tmp->next;
+	}
+	return (range);
+}

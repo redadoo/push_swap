@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:30 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/27 14:02:38 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/06/28 15:15:00 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ void	push_swap(int argc, char **argv)
 	{
 		return ;
 	}
-	small_sort(&a,&b);
+	sort(&a,&b);
 	ft_free_all(&a,&b);
 }
