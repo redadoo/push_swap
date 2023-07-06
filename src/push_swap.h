@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 10:51:18 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/28 20:32:45 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/07/06 19:25:10 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <fcntl.h>
 # include "../ft_libft/libft.h"
 
+#define PRINT(x) printf("\n %i   \n",x);
+#define DEBUG(s) printf("\n TEST %s TEST  \n",s);
 typedef struct s_stack
 {
 	int				value;
@@ -33,7 +35,7 @@ void		ft_append_node(t_stack **head_ref, int new_value);
 void		ft_print_stack(t_stack **a);
 t_stack		*ft_init_stack(char **list, int len_list);
 void		ft_error(t_stack **head_ref);
-void		push_swap(int argc, char **argv);
+void		push_swap(t_stack **a, t_stack **b);
 int			ft_check(char *s);
 t_stack		*last_node(t_stack **head_ref);
 t_stack		*first_node(t_stack **head_ref);
@@ -58,7 +60,10 @@ void    	ft_rrr(t_stack **a, t_stack **b);
 int			ft_check_stack(char **list);
 int			ft_double_check(char **list);
 void		ft_free_all(t_stack **a, t_stack **b);
-void		sort(t_stack **a, t_stack **b);
-int			range_smallest(t_stack **head_ref);
-void		move_to(t_stack **head_ref,int oldpos, int newpos);
+t_stack	*	find_smallest(t_stack **head_ref);
+void		sort_of_3(t_stack **a);
+int			find_bigger(t_stack **head_ref);
+void		small_sort(t_stack **a,t_stack **b);
+int			sorted_pos(t_stack **head_ref, int value);
+int			sort_top_value(t_stack **head_ref, t_stack **head_ref_b);
 #endif 

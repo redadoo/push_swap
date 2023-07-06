@@ -12,7 +12,11 @@
         "array": "c",
         "functional": "c",
         "tuple": "c",
-        "utility": "c"
+        "utility": "c",
+        "*.tcc": "c",
+        "list": "c"
     },
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    "cmake.configureOnOpen": false,
+    "cmake.sourceDirectory": "/home/edoardo/Desktop/42/push_swap/push_swap_visualizer"
 }

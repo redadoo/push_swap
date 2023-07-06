@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_order.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:46:55 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/27 12:06:53 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/07/03 14:04:34 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,6 @@ int ft_ascending(t_stack **a)
 	while (temp->next != NULL)
 	{
 		if (temp->value < temp->next->value)
-			temp = temp->next;
-		else
-			return (0);
-	}
-	return (1);
-}
-
-
-int ft_descending(t_stack **a)
-{
-	t_stack *temp;
-
-	temp = *a;
-	while (temp->next != NULL)
-	{
-		if (temp->value >= temp->next->value)
 			temp = temp->next;
 		else
 			return (0);

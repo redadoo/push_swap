@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:44:11 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/28 19:49:47 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/07/03 19:48:45 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,13 @@ void	delete_node(t_stack **head_ref, int s_index)
 
  	temp = (*head_ref);
 	tmp = last_node(&temp)->index;
-	if (temp != NULL && s_index == 0) 
-		(*head_ref) = (*head_ref)->next;
+	if (temp != NULL && s_index == 0)
+	{
+		if((*head_ref)->next != NULL)
+			(*head_ref) = (*head_ref)->next;
+		else
+			(*head_ref)->index = -1;
+	}
  	else if (s_index != 0)
 	{
 		while (temp->next != NULL && temp->index < s_index) 

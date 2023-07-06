@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utilities.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:43 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/27 14:03:17 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/07/06 19:24:56 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,73 @@ void	ft_free_all(t_stack **a, t_stack **b)
 	}
 	if ((*b)->index == -1)
 		free((*b));
+}
+
+t_stack	*find_smallest(t_stack **head_ref)
+{
+	t_stack *tmp;
+	int		n;
+	int		i;
+	tmp = (*head_ref);
+
+	i = 0;
+	n = tmp->value;
+	while (tmp != NULL)
+	{
+		if (tmp->value < n)
+			return (tmp);
+		tmp = tmp->next;
+	}
+	return (tmp);
+}
+
+int	find_bigger(t_stack **head_ref)
+{
+	t_stack *tmp;
+	int		n;
+	int		i;
+	tmp = (*head_ref);
+
+	i = 0;
+	n = tmp->value;
+	while (tmp != NULL)
+	{
+		if (tmp->value > n)
+		{
+			n = tmp->value;
+			i = tmp->index;
+		}
+		tmp = tmp->next;
+	}
+	return (i);
+}
+
+int sorted_pos(t_stack **head_ref, int value)
+{
+	t_stack *tmp;
+	int		n;
+
+	tmp = (*head_ref);
+	n = 0;
+	while (tmp != NULL)
+	{
+		if (tmp->value > value)
+			return (n);
+		n++;
+		tmp = tmp->next;
+	}
+	return (n);
+}
+
+int sort_top_value(t_stack **head_ref, t_stack **head_ref_b)
+{
+	t_stack *tmp;
+	t_stack *tmp_b;
+	int		newindex;
+	int		capiamo;
+	
+	capiamo = 0;
+	tmp = (*head_ref);
+	tmp_b =(*head_ref_b);
+	newindex = sorted_pos(&tmp,tmp_b->value);
 }

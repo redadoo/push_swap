@@ -6,83 +6,134 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 14:45:13 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/28 20:52:01 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/07/06 19:51:12 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src/push_swap.h"
 
-void	small_sort(t_stack **a, t_stack **b)
+void	sort_of_3(t_stack **a)
 {
-	t_stack		*temp_a;
-	t_stack		*temp_b;
-	int			len;
-	int			index;
-
-	temp_a = (*a);
-	temp_b = (*b);
-	index = 0;
-	while (ft_ascending(&temp_a) != 1)	
+	if (ft_ascending(a) == 1)
+		return;
+	if (find_bigger(a) == (*a)->index)
 	{
-		len = last_node(&temp_a)->index;
-		while (len)
+		if ((*a)->next->value > last_node(a)->value)
 		{
-			if (temp_a->value > temp_a->next->value)
-		 	{
-				ft_sa(&temp_a,1);
-				ft_ra(&temp_a,1);
-			}
-		 	else if (temp_a->value < temp_a->next->value)
-			{
-				ft_ra(&temp_a,1);
-			}
-		 	len--;
+			ft_sa(a,1);
+			ft_rra(a,1);
 		}
-		ft_ra(&temp_a,1);
+		else
+			ft_ra(a,1);
 	}
-	printf(" %i  \n", index);
+	else if (find_bigger(a) == 1)
+	{
+		if ((*a)->value > last_node(a)->value)
+			ft_rra(a,1);
+		else
+		{
+			ft_sa(a,1);
+			ft_ra(a,1);
+		}
+	}
+	else if (find_bigger(a) == last_node(a)->index)
+		ft_sa(a,1);
 }
 
-void	sort(t_stack **a, t_stack **b)
+void	small_sort(t_stack **a,t_stack **b)
 {
-	t_stack		*temp_a;
-	t_stack		*temp_b;
-	int			index;
-	int			pivot;
+	int		n;
+	int		i;
+	int		t;
+	t_stack *tmp_a;
+	t_stack *tmp_b;
 
-	temp_a = (*a);
-	temp_b = (*b);
-
-	pivot = 0;
-	index = last_node(&temp_a)->index / 2;
-	while (index + 1)
+	tmp_a = (*a);
+	tmp_b = (*b);
+	t = 0;
+	while (last_node(&tmp_a)->index != 2)
+		ft_pb(&tmp_a,&tmp_b,1);
+	sort_of_3(&tmp_a);
+	i = last_node(&tmp_b)->index + 1;
+	while(i)
 	{
-		ft_pb(&temp_a,&temp_b,1);
-		index--;
-	}
-	ft_print_stack(&temp_a);
-	ft_print_stack(&temp_b);
-	while (ft_ascending(&temp_a) != 1)
-	{
-		if (pivot == 100)
-			break;
-
-		index = temp_a->index;
-		if (temp_a->value < temp_a->next->value)
+		n = sorted_pos(&tmp_a,tmp_b->value);
+		if (ft_ascending(&tmp_a) == 1 && n != (last_node(&tmp_a)->index)&& n != (last_node(&tmp_a)->index) - 1 || n == 1 || n == last_node(&tmp_a)->index + 1)
 		{
-			if (index == 0)
-				ft_sa(&temp_a,1);
+			if (tmp_b->index != -1)
+				ft_pa(&tmp_a,&tmp_b,1);
+ 			if(n == 1)
+				ft_sa(&tmp_a,1);
+			else if(n == last_node(&tmp_a)->index)
+				ft_ra(&tmp_a,1);
+		}
+		else
+		{
+			if (last_node(&tmp_a)->value > tmp_b->value)
+			{
+				ft_rra(&tmp_a, 1);
+				if (last_node(&tmp_a)->value > tmp_b->value)
+					ft_rra(&tmp_a, 1);
+				if (tmp_b->index != -1)
+ 					ft_pa(&tmp_a, &tmp_b,1);
+			}
+			if (tmp_b->index != -1)
+			{
+				n = sorted_pos(&tmp_a,tmp_b->value);
+				if (tmp_b->index != -1 && n == 0)
+				{
+					i--;
+					if (tmp_b->value > find_smallest(&tmp_a)->value)
+					{
+						if (tmp_b->value > last_node(&tmp_a)->value)
+						{
+							ft_pa(&tmp_a,&tmp_b, 1);
+							ft_rra(&tmp_a, 1);
+							ft_rra(&tmp_a, 1);
+						}
+						else
+						{	
+							ft_rra(&tmp_a, 1);
+							ft_pa(&tmp_a,&tmp_b, 1);
+							ft_rra(&tmp_a, 1);
+						}
+					}
+					else
+					{
+						ft_ra(&tmp_a, 1);
+						ft_ra(&tmp_a, 1);
+						ft_pa(&tmp_a,&tmp_b, 1);
+					}
+				}
+				else
+				{
+					ft_ra(&tmp_a, 1);
+					ft_ra(&tmp_a, 1);
+				}
+			}
 			else
 			{
-				while (index)
+				if (find_smallest(&tmp_a)->index == 2)
 				{
-					ft_ra(&temp_a,1);
-					index--;
+					t = 2;
+					while(t)
+					{
+						ft_ra(&tmp_a, 1);
+						t--;
+					}
+				}
+				else if(find_smallest(&tmp_a)->index == 3)
+				{
+					t = 2;
+					while(t)
+					{
+						ft_rra(&tmp_a, 1);
+						t--;
+					}
 				}
 			}
 		}
-		temp_a = temp_a->next;
-		pivot++;
+		i--;
 	}
-	ft_print_stack(a);
 }
+

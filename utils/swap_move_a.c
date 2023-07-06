@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:33:35 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/28 20:29:45 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/07/03 19:39:42 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,11 @@ void	ft_pa(t_stack **a, t_stack **b,int i)
 	t_stack	*temp_a;
 	t_stack	*temp_b;
 
-	temp_a = (*a);
 	temp_b = (*b);
-	if(last_node(b)->index == 0)
-		return ;
-	push_node(&temp_a,temp_b->value);
-	delete_node(&temp_b,0);
-	if ( i == 1)
- 		ft_printf("pa\n");	
+	push_node(a,temp_b->value);	
+	delete_node(b,0);
+	if (i == 1)
+		ft_printf("pa\n");
 }
 
 void ft_ra(t_stack **a, int i)
