@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:44:11 by evocatur          #+#    #+#             */
-/*   Updated: 2023/07/03 19:48:45 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/07/09 19:55:48 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,29 +75,19 @@ t_stack	*last_node(t_stack **head_ref)
 	return (last);
 }
 
-int	find_node(t_stack **head_ref,int x, char c)
+t_stack	*find_node(t_stack **head_ref,int i)
 {
 	t_stack	*find;
 
 	find = (*head_ref);
 
-	if(c == 'i')
+	while (find->next != NULL)
 	{
-		while(find->next != NULL && find->value != x)
-			find = find->next;
-		if (find->value != x)
-			return (-1);
-		return (find->index);
+		if(find->index == i)
+			return(find);
+		find = find->next;
 	}
-	else if(c == 'v')
-	{
-		while(find->next != NULL && find->index != x)
-			find = find->next;
-		if (find->index != x)
-			return (-1);
-		return (find->value);
-	}
-	return (0);
+	return (find);
 }
 
 void	delete_node(t_stack **head_ref, int s_index)
@@ -175,20 +165,4 @@ void	push_node(t_stack **head_ref, int value)
 	}
 }
 
-int	range_smallest(t_stack **head_ref)
-{
-	t_stack *tmp;
-	int		range;
 
-	tmp = (*head_ref);
-	range = 0;
-	while (tmp->next != NULL)
-	{
-		if (tmp->value < tmp->next->value)
-			range++;
-		else
-			break ;
-		tmp = tmp->next;
-	}
-	return (range);
-}

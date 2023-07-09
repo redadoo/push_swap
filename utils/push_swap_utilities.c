@@ -6,11 +6,18 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:43 by evocatur          #+#    #+#             */
-/*   Updated: 2023/07/06 19:24:56 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/07/09 21:43:55 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src/push_swap.h"
+
+void printArray(int *ptr, size_t length)      
+{         
+	size_t i = 0;
+	for( ; i < length; ++i )      
+	printf("\n %d  \n", ptr[i]);        
+}   
 
 void	ft_error(t_stack **head_ref)
 {
@@ -62,26 +69,26 @@ int	ft_check_stack(char **list)
 	i = 1;
 	if(!list)
 	{
-		write(2,"Error\n",7);
+		write(2,"Error: list not found\n",23);
 		return (0);
 	}
 	while (list[i])
 	{
 		if(ft_check(list[i]) == 0)
 		{
-			write(2,"Error\n",7);
+			write(2,"Error: found a non int \n",25);
 			return (0);
 		}
 		i++;
 	}
 	if (i <= 2)
 	{
-		write(2,"Error\n",7);
+		write(2,"Error: list too small\n",23);
 		return (0);
 	}
 	if (ft_double_check(list) == 0)
 	{
-		write(2,"Error\n",7);
+		write(2,"Error: double number found\n",28);
 		return (0);
 	}
 	return (1);
@@ -120,7 +127,7 @@ t_stack	*find_smallest(t_stack **head_ref)
 	return (tmp);
 }
 
-int	find_bigger(t_stack **head_ref)
+int find_bigger(t_stack **head_ref)
 {
 	t_stack *tmp;
 	int		n;
@@ -158,15 +165,61 @@ int sorted_pos(t_stack **head_ref, int value)
 	return (n);
 }
 
-int sort_top_value(t_stack **head_ref, t_stack **head_ref_b)
+void	print_list(char **matrix)
 {
+	char	*str;
+
+	if (!matrix)
+		return ;
+	while (*matrix)
+	{
+		str = *matrix;
+		ft_printf("%s", str);
+		printf("\n");
+		matrix++;
+	}
+	printf("\n");
+	return ;
+}
+
+int find_median(t_stack **head_ref)
+{
+	int	i;
+	int *array;
+	int size;
 	t_stack *tmp;
-	t_stack *tmp_b;
-	int		newindex;
-	int		capiamo;
-	
-	capiamo = 0;
+
 	tmp = (*head_ref);
-	tmp_b =(*head_ref_b);
-	newindex = sorted_pos(&tmp,tmp_b->value);
+	size = last_node(head_ref)->index + 1;
+	array = malloc(size * sizeof(int));
+
+	size = 0;
+ 	while (tmp->next != NULL)
+	{
+		array[size] = tmp->value;
+		tmp = tmp->next;
+		size++;
+	}
+	ft_print_stack(head_ref);
+	insertion_sort(array,last_node(head_ref)->index);
+
+	printArray(array,last_node(head_ref)->index);
+
+	return(0);
+	
+}
+
+void insertion_sort(int *arr,int n)
+{
+    int i, key, j;
+    for (i = 1; i < n; i++) {
+        key = arr[i];
+        j = i - 1;
+ 
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
+    }
 }

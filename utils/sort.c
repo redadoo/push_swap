@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 14:45:13 by evocatur          #+#    #+#             */
-/*   Updated: 2023/07/06 19:51:12 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/07/09 20:01:47 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,5 +135,20 @@ void	small_sort(t_stack **a,t_stack **b)
 		}
 		i--;
 	}
+	(*a) = tmp_a;
+	(*b) = tmp_b;
+
 }
 
+void big_sort(t_stack **a,t_stack **b)
+{
+	int		i;
+	t_stack *tmp_a;
+	t_stack *tmp_b;
+
+	tmp_a = (*a);
+	tmp_b = (*b);
+
+	i = find_median(&tmp_a);
+
+}
