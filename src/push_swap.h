@@ -62,12 +62,12 @@ int			ft_double_check(char **list);
 void		ft_free_all(t_stack **a, t_stack **b);
 t_stack	*	find_smallest(t_stack **head_ref);
 void		sort_of_3(t_stack **a);
-int			find_bigger(t_stack **head_ref);
+t_stack 	*find_bigger(t_stack **head_ref);
 void		small_sort(t_stack **a,t_stack **b);
 int			sorted_pos(t_stack **head_ref, int value);
 void		big_sort(t_stack **a,t_stack **b);
 void		print_list(char **list);
-int			find_median(t_stack **head_ref);
+t_stack		*find_median(t_stack **head_ref);
 void		insertion_sort(int *arr,int n);
-
+void		low_cost_push(t_stack **a,t_stack **b);
 #endif 

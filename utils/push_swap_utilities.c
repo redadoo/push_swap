@@ -112,40 +112,45 @@ void	ft_free_all(t_stack **a, t_stack **b)
 t_stack	*find_smallest(t_stack **head_ref)
 {
 	t_stack *tmp;
+	t_stack *smallest;
 	int		n;
 	int		i;
 	tmp = (*head_ref);
 
 	i = 0;
 	n = tmp->value;
+	smallest = tmp;
 	while (tmp != NULL)
 	{
 		if (tmp->value < n)
-			return (tmp);
+		{
+			n = tmp->value;
+			smallest = tmp;
+		}
 		tmp = tmp->next;
 	}
-	return (tmp);
+	return (smallest);
 }
 
-int find_bigger(t_stack **head_ref)
+t_stack *find_bigger(t_stack **head_ref)
 {
 	t_stack *tmp;
+	t_stack *bigger;
 	int		n;
-	int		i;
-	tmp = (*head_ref);
 
-	i = 0;
+	tmp = (*head_ref);
 	n = tmp->value;
+	bigger = tmp;
 	while (tmp != NULL)
 	{
 		if (tmp->value > n)
 		{
 			n = tmp->value;
-			i = tmp->index;
+			bigger = tmp;
 		}
 		tmp = tmp->next;
 	}
-	return (i);
+	return (bigger);
 }
 
 int sorted_pos(t_stack **head_ref, int value)
@@ -182,7 +187,7 @@ void	print_list(char **matrix)
 	return ;
 }
 
-int find_median(t_stack **head_ref)
+t_stack *find_median(t_stack **head_ref)
 {
 	int	i;
 	int *array;
@@ -200,12 +205,25 @@ int find_median(t_stack **head_ref)
 		tmp = tmp->next;
 		size++;
 	}
-	ft_print_stack(head_ref);
-	insertion_sort(array,last_node(head_ref)->index);
-
 	printArray(array,last_node(head_ref)->index);
 
-	return(0);
+	insertion_sort(array,last_node(head_ref)->index);
+
+
+	i = last_node(head_ref)->index / 2;
+
+	tmp = (*head_ref);
+	while(tmp->next != NULL)
+	{
+		if (tmp->value == array[i])
+		{
+			free(array);
+			return (tmp);
+		}
+		tmp = tmp->next;
+	}
+	free(array);
+	return (tmp);
 	
 }
 
@@ -222,4 +240,58 @@ void insertion_sort(int *arr,int n)
         }
         arr[j + 1] = key;
     }
+}
+
+void	low_cost_push(t_stack **a,t_stack **b)
+{
+	int		i;
+	int		j;
+	int		len;
+
+	len = last_node(b)->index + 1;
+	i = find_bigger(b)->index;
+	j = find_smallest(b)->index;
+	i = i > (len / 2) ? (len - find_bigger(b)->index)  : find_bigger(b)->index;
+	j = j > (len / 2) ? (len - find_smallest(b)->index)  : find_smallest(b)->index;
+	
+/* 	PRINT(i);
+	PRINT(j);
+	PRINT(find_bigger(b)->value);
+	PRINT(find_smallest(b)->value); */
+	//ft_print_stack(b);
+	if (i < j)
+	{		
+		if(i == find_bigger(b)->index)
+		{
+			while ((*b)->value != find_bigger(b)->value)
+				ft_rb(b,1);				
+		}
+		else
+		{
+			while ((*b)->value != find_bigger(b)->value)
+				ft_rrb(b,1);
+		}
+		ft_pa(a,b,1);
+		return ;
+	}
+	else
+	{
+		if(j == find_smallest(b)->index)
+		{
+			while ((*b)->value != find_smallest(b)->value)
+				ft_rb(b,1);				
+		}
+		else
+		{
+			while ((*b)->value != find_smallest(b)->value)
+				ft_rrb(b,1);
+		}
+		ft_pa(a,b,1);
+		ft_ra(a,1);
+		return ;
+	}
+	if (find_smallest(b)->value == find_bigger(b)->value)
+		ft_pa(a,b,1);
+	if ((*a)->value > (*a)->next->value)
+		ft_ra(a,1);
 }

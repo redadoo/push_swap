@@ -49,5 +49,10 @@ void	push_swap(t_stack **a, t_stack **b)
 	else if (last_node(&tmp_a)->index <= 4)
 		small_sort(&tmp_a,&tmp_b);
 	else if (last_node(&tmp_a)->index <= 499)
+	{
 		big_sort(&tmp_a,&tmp_b);
+		big_sort(&tmp_a,&tmp_b);
+		big_sort(&tmp_a,&tmp_b);
+	}
+
 }

@@ -47,6 +47,9 @@ gen: all
 leaks: all
 	@leaks --groupByType --atExit -- ./$(NAME) $(STACK)
 
+test: all
+	@./$(NAME) -35 95 -81 3 9 2 -15 -50 1 -37 -52 -91 46 -23 -80 -78 -42 -26 65 19
+
 clean: 
 	@${RM} ${OBJ}
 

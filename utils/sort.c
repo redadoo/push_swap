@@ -16,7 +16,7 @@ void	sort_of_3(t_stack **a)
 {
 	if (ft_ascending(a) == 1)
 		return;
-	if (find_bigger(a) == (*a)->index)
+	if (find_bigger(a)->index == (*a)->index)
 	{
 		if ((*a)->next->value > last_node(a)->value)
 		{
@@ -26,7 +26,7 @@ void	sort_of_3(t_stack **a)
 		else
 			ft_ra(a,1);
 	}
-	else if (find_bigger(a) == 1)
+	else if (find_bigger(a)->index == 1)
 	{
 		if ((*a)->value > last_node(a)->value)
 			ft_rra(a,1);
@@ -36,7 +36,7 @@ void	sort_of_3(t_stack **a)
 			ft_ra(a,1);
 		}
 	}
-	else if (find_bigger(a) == last_node(a)->index)
+	else if (find_bigger(a)->index == last_node(a)->index)
 		ft_sa(a,1);
 }
 
@@ -143,12 +143,38 @@ void	small_sort(t_stack **a,t_stack **b)
 void big_sort(t_stack **a,t_stack **b)
 {
 	int		i;
+	int		n;
 	t_stack *tmp_a;
 	t_stack *tmp_b;
+	t_stack *tmp;
 
 	tmp_a = (*a);
 	tmp_b = (*b);
 
-	i = find_median(&tmp_a);
+	//i = find_median(&tmp_a)->value;
+	i = last_node(&tmp_a)->index / 2;
+	n = i;
+	while(i + 1)
+	{
+		ft_pb(&tmp_a,&tmp_b,1);
+		i--;
+	}
+	i = tmp_a->value;
+	while (n + 1)
+	{
+		low_cost_push(&tmp_a,&tmp_b);
+		n--;
+	}
+	tmp = tmp_a;
+	while(tmp->value != i && tmp->next != NULL)
+		tmp = tmp->next;
+	i = tmp->index;
+	while(i)
+	{
+		ft_ra(&tmp_a,1);
+		i--;
+	}
+	(*a) = tmp_a;
+	(*b) = tmp_b;
 
 }
