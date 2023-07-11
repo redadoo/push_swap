@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 14:45:13 by evocatur          #+#    #+#             */
-/*   Updated: 2023/07/09 20:01:47 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/07/12 01:57:38 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,7 @@ void big_sort(t_stack **a,t_stack **b)
 {
 	int		i;
 	int		n;
+	int		x;
 	t_stack *tmp_a;
 	t_stack *tmp_b;
 	t_stack *tmp;
@@ -151,30 +152,43 @@ void big_sort(t_stack **a,t_stack **b)
 	tmp_a = (*a);
 	tmp_b = (*b);
 
-	//i = find_median(&tmp_a)->value;
-	i = last_node(&tmp_a)->index / 2;
-	n = i;
-	while(i + 1)
+	i = find_median(&tmp_a)->value;
+	n = last_node(&tmp_a)->index  * 2; 
+	while (n)
 	{
-		ft_pb(&tmp_a,&tmp_b,1);
-		i--;
+		if(tmp_a->value < i)
+			ft_pb(&tmp_a,&tmp_b,1);
+		ft_ra(&tmp_a,1);
+		n--;
 	}
-	i = tmp_a->value;
+	while (find_node(&tmp_a,i)->index != 0)
+	{
+		ft_ra(&tmp_a,1);
+	}
+	n = last_node(&tmp_b)->index;
+	i = last_node(&tmp_b)->value;
+	x = tmp_a->value;
 	while (n + 1)
 	{
 		low_cost_push(&tmp_a,&tmp_b);
 		n--;
 	}
-	tmp = tmp_a;
-	while(tmp->value != i && tmp->next != NULL)
-		tmp = tmp->next;
-	i = tmp->index;
-	while(i)
+	while (find_node(&tmp_a,x)->index != 0)
 	{
 		ft_ra(&tmp_a,1);
-		i--;
 	}
-	(*a) = tmp_a;
-	(*b) = tmp_b;
-
+	while (find_smallest(&tmp_a)->index != 0)
+	{
+		ft_pb(&tmp_a,&tmp_b,1);
+	}
+	n = last_node(&tmp_b)->index;
+	while (n + 1)
+	{
+		low_cost_push(&tmp_a,&tmp_b);
+		n--;
+	}
+	while (find_smallest(&tmp_a)->index != 0)
+	{
+		ft_ra(&tmp_a,1);
+	}
 }

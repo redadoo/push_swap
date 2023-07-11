@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:43 by evocatur          #+#    #+#             */
-/*   Updated: 2023/07/09 21:43:55 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/07/11 19:36:50 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,10 +205,10 @@ t_stack *find_median(t_stack **head_ref)
 		tmp = tmp->next;
 		size++;
 	}
-	printArray(array,last_node(head_ref)->index);
 
 	insertion_sort(array,last_node(head_ref)->index);
 
+	//printArray(array,last_node(head_ref)->index);
 
 	i = last_node(head_ref)->index / 2;
 
@@ -254,11 +254,6 @@ void	low_cost_push(t_stack **a,t_stack **b)
 	i = i > (len / 2) ? (len - find_bigger(b)->index)  : find_bigger(b)->index;
 	j = j > (len / 2) ? (len - find_smallest(b)->index)  : find_smallest(b)->index;
 	
-/* 	PRINT(i);
-	PRINT(j);
-	PRINT(find_bigger(b)->value);
-	PRINT(find_smallest(b)->value); */
-	//ft_print_stack(b);
 	if (i < j)
 	{		
 		if(i == find_bigger(b)->index)

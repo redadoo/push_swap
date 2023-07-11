@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:30 by evocatur          #+#    #+#             */
-/*   Updated: 2023/07/08 18:47:24 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/07/11 18:03:54 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void	push_swap(t_stack **a, t_stack **b)
 	else if (last_node(&tmp_a)->index <= 499)
 	{
 		big_sort(&tmp_a,&tmp_b);
-		big_sort(&tmp_a,&tmp_b);
-		big_sort(&tmp_a,&tmp_b);
+/* 		big_sort(&tmp_a,&tmp_b);
+		big_sort(&tmp_a,&tmp_b); */
 	}
 
 }

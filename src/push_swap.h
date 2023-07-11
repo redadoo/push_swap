@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 10:51:18 by evocatur          #+#    #+#             */
-/*   Updated: 2023/07/09 21:43:34 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/07/12 01:52:16 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int			ft_descending(t_stack **a);
 int			ft_ascending(t_stack **a);
 t_stack		*prev_node(t_stack **head_ref, int index);
 void		delete_node(t_stack **head_ref, int s_index);
-t_stack		*find_node(t_stack **head_ref,int x);
+t_stack		*find_node(t_stack **head_ref,int value);
 void		push_node(t_stack **head_ref, int value);
 void		ft_ra(t_stack **a,int i);
 void 		ft_rra(t_stack **a,int i);

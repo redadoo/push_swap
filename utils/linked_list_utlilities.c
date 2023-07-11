@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:44:11 by evocatur          #+#    #+#             */
-/*   Updated: 2023/07/09 19:55:48 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/07/12 01:30:04 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ t_stack	*last_node(t_stack **head_ref)
 	return (last);
 }
 
-t_stack	*find_node(t_stack **head_ref,int i)
+t_stack	*find_node(t_stack **head_ref,int value)
 {
 	t_stack	*find;
 
@@ -83,7 +83,7 @@ t_stack	*find_node(t_stack **head_ref,int i)
 
 	while (find->next != NULL)
 	{
-		if(find->index == i)
+		if(find->value == value)
 			return(find);
 		find = find->next;
 	}
