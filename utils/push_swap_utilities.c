@@ -290,3 +290,69 @@ void	low_cost_push(t_stack **a,t_stack **b)
 	if ((*a)->value > (*a)->next->value)
 		ft_ra(a,1);
 }
+
+void	smart_push(t_stack **a, t_stack **b,int median)
+{
+	t_stack *tmp_a;
+	int		n;
+	int		x;
+	int		len;
+
+	len = last_node(a)->index + 1;
+	tmp_a = (*a);
+	n = -1;
+	x = -1;
+	while (tmp_a->next != NULL && tmp_a->index < (len / 2))
+	{
+		if (tmp_a->value < median)
+		{
+			n = tmp_a->index;
+			break;
+		}
+		tmp_a = tmp_a->next;
+	}
+ 	while (tmp_a != NULL)
+	{
+		if (tmp_a->value < median)
+			x = tmp_a->index;
+		tmp_a = tmp_a->next;
+	}
+	if (n < len - x && n != -1)
+	{
+		n = find_node_index(a,n)->value;
+		while ((*a)->value != n)
+			ft_ra(a,1);
+		ft_pb(a,b,1);
+	}	
+	else if (x != -1)
+	{
+		x = find_node_index(a,x)->value;
+		while ((*a)->value != x)
+			ft_rra(a,1);
+		ft_pb(a,b,1);
+	}
+} 
+
+int pushed(t_stack **head_ref,int value)
+{
+	t_stack *tmp;
+
+	tmp = (*head_ref);
+	if (tmp == NULL)
+		return (0);
+
+ 	while (tmp->next != NULL)
+	{
+		if (tmp->value < value)
+		{
+			return (1);
+		}
+		tmp = tmp->next;
+	}
+	if (tmp->value < value)
+	{
+		return (1);
+	}
+	return (0);
+}
+

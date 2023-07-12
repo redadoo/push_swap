@@ -165,4 +165,19 @@ void	push_node(t_stack **head_ref, int value)
 	}
 }
 
+t_stack	*find_node_index(t_stack **head_ref,int index)
+{
+	t_stack	*find;
+
+	find = (*head_ref);
+
+	while (find->next != NULL)
+	{
+		if(find->index == index)
+			return(find);
+		find = find->next;
+	}
+	return (find);
+}
+
 

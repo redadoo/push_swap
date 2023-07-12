@@ -70,4 +70,7 @@ void		print_list(char **list);
 t_stack		*find_median(t_stack **head_ref);
 void		insertion_sort(int *arr,int n);
 void		low_cost_push(t_stack **a,t_stack **b);
+int			pushed(t_stack **head_ref,int value);
+void		smart_push(t_stack **a, t_stack **b, int median);
+t_stack		*find_node_index(t_stack **head_ref,int index);
 #endif 

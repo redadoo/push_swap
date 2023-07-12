@@ -152,23 +152,16 @@ void big_sort(t_stack **a,t_stack **b)
 	tmp_a = (*a);
 	tmp_b = (*b);
 
-	i = find_median(&tmp_a)->value;
-	n = last_node(&tmp_a)->index  * 2; 
-	while (n)
+	i = find_median(&tmp_a)->value;	 
+	x = 1;
+	while (pushed(&tmp_a,i) != 0)
 	{
-		if(tmp_a->value < i)
-			ft_pb(&tmp_a,&tmp_b,1);
-		ft_ra(&tmp_a,1);
-		n--;
-	}
-	while (find_node(&tmp_a,i)->index != 0)
-	{
-		ft_ra(&tmp_a,1);
+		smart_push(&tmp_a, &tmp_b, i);
 	}
 	n = last_node(&tmp_b)->index;
 	i = last_node(&tmp_b)->value;
 	x = tmp_a->value;
-	while (n + 1)
+ 	while (n + 1)
 	{
 		low_cost_push(&tmp_a,&tmp_b);
 		n--;
@@ -177,11 +170,11 @@ void big_sort(t_stack **a,t_stack **b)
 	{
 		ft_ra(&tmp_a,1);
 	}
-	while (find_smallest(&tmp_a)->index != 0)
+  	while (find_smallest(&tmp_a)->index != 0)
 	{
 		ft_pb(&tmp_a,&tmp_b,1);
 	}
-	n = last_node(&tmp_b)->index;
+ 	n = last_node(&tmp_b)->index;
 	while (n + 1)
 	{
 		low_cost_push(&tmp_a,&tmp_b);
