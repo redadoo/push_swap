@@ -6,7 +6,7 @@
 #    By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/19 15:41:17 by evocatur          #+#    #+#              #
-#    Updated: 2023/07/12 01:24:35 by edoardo          ###   ########.fr        #
+#    Updated: 2023/07/16 12:57:28 by edoardo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,8 +48,9 @@ leaks: all
 	@leaks --groupByType --atExit -- ./$(NAME) $(STACK)
 
 test: all
-	@./$(NAME) -35 95 -81 3 9 2 -15 -50 1 -37 -52 -91 46 -23 -80 -78 -42 -26 65 19
-
+	@./$(NAME) 3 5 1 4 2
+test1: all
+	@./$(NAME) 4 3 1 5 2
 clean: 
 	@${RM} ${OBJ}
 

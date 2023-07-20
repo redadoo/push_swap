@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 18:05:38 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/28 20:34:55 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/07/13 19:23:16 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	ft_sb(t_stack **b, int i)
 {
+	int		tmp;
+	int		tmp_index;
 	t_stack	*temp_b;
-	int      tmp;
-  	int     tmp_index;
 
-	if(last_node(b)->index <= 0)
+	if (last_node(b)->index <= 0)
 		return ;
 	temp_b = (*b);
 	tmp = temp_b->value;
-    tmp_index = temp_b->index;
+	tmp_index = temp_b->index;
 	temp_b->value = temp_b->next->value;
 	temp_b->next->value = tmp;
 	if (i == 1)
@@ -34,30 +34,29 @@ void	ft_pb(t_stack **a, t_stack **b, int i)
 	t_stack	*temp_a;
 	t_stack	*temp_b;
 
-	push_node(b,(*a)->value);	
-	delete_node(a,0);
+	push_node(b, (*a)->value);
+	delete_node(a, 0);
 	if (i == 1)
 		ft_printf("pb\n");
 }
 
-void ft_rb(t_stack **b, int i)
+void	ft_rb(t_stack **b, int i)
 {
+	int		len;
 	t_stack	*temp_b;
-	int 	len;
 
 	temp_b = (*b);
 	len = temp_b->value;
-
 	delete_node(b, 0);
 	ft_append_node(b, len);
 	if (i == 1)
 		ft_printf("rb\n");
 }
 
-void ft_rrb(t_stack **b, int i)
+void	ft_rrb(t_stack **b, int i)
 {
+	int		len;
 	t_stack	*temp_b;
-	int 	len;
 
 	temp_b = (*b);
 	len = last_node(b)->value;

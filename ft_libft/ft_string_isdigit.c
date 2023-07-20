@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string_isdigit.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 11:24:28 by evocatur          #+#    #+#             */
-/*   Updated: 2023/06/27 14:07:43 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/07/16 01:16:22 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	ft_string_isdigit(char *c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (*c)
 	{
-		if((int)*c == 45)
+		if ((int)*c == 45)
 			i++;
 		if (i > 1)
 			return (0);
