@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "checker.h": "c",
+        "stdio.h": "c",
+        "random": "c"
+    }
+}
