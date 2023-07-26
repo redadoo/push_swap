@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 18:20:07 by edoardo           #+#    #+#             */
-/*   Updated: 2023/07/20 18:21:22 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/07/26 15:00:49 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ static	int	small_sort_utilis_1(t_stack **tmp_a, t_stack **tmp_b, int i, int t)
 
 static	int	small_sort_utilis_0(t_stack **tmp_a, t_stack **tmp_b, int n, int i)
 {
-	if (ft_ascending(tmp_a) == 1 && n != (last_node(tmp_a)->index)
-		&& n != (last_node(tmp_a)->index) - 1
+	if ((ft_ascending(tmp_a) == 1 && n != (last_node(tmp_a)->index)
+		&& n != (last_node(tmp_a)->index) - 1)
 		|| n == 1 || n == last_node(tmp_a)->index + 1)
 	{
 		if ((*tmp_b)->index != -1)

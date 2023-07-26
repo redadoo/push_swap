@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_0.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 15:04:56 by edoardo           #+#    #+#             */
-/*   Updated: 2023/07/16 11:16:37 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/07/26 16:55:56 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	push_node(t_stack **head_ref, int value)
 	t_stack	*new_node;
 	t_stack	*tmp_node;
 
-	new_node = (t_stack *)malloc(sizeof(t_stack *));
+	new_node = malloc(sizeof(t_stack *));
 	if (new_node == NULL)
 		return ;
 	if ((*head_ref)->index == -1)
@@ -107,4 +107,5 @@ void	push_node(t_stack **head_ref, int value)
 	}
 	else
 		push_node_utils(head_ref, value, new_node, tmp_node);
+	free(new_node);
 }

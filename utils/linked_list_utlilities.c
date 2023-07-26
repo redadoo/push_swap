@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linked_list_utlilities.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:44:11 by evocatur          #+#    #+#             */
-/*   Updated: 2023/07/16 11:14:09 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/07/26 17:13:07 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ft_append_node(t_stack **head_ref, int new_value)
 	t_stack	*new_node;
 	t_stack	*last;
 
-	new_node = NULL;
 	new_node = malloc(sizeof(t_stack *));
 	if (!new_node)
 		return ;
@@ -30,11 +29,9 @@ void	ft_append_node(t_stack **head_ref, int new_value)
 		*head_ref = new_node;
 		return ;
 	}
-	last = *head_ref;
+	last = (*head_ref);
 	while (last->next != NULL)
-	{
 		last = last->next;
-	}
 	last->next = new_node;
 	new_node->prev = last;
 	new_node->index = last->index + 1;
@@ -86,6 +83,7 @@ int	static	delete_node_utils(t_stack **h, int i, t_stack	*t, t_stack	*prev)
 		if (t->next != NULL)
 			t->next->prev = prev;
 	}
+	free(t);
 	return (1);
 }
 
@@ -100,7 +98,6 @@ void	delete_node(t_stack **head_ref, int s_index)
 	if (delete_node_utils(head_ref, s_index, temp, prev) == 0)
 		return ;
 	temp = NULL;
-	free(temp);
 	temp = (*head_ref);
 	while (temp->next != NULL && temp->index < s_index)
 		temp = temp->next;

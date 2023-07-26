@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 15:00:27 by edoardo           #+#    #+#             */
-/*   Updated: 2023/07/16 01:14:05 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/07/26 17:19:19 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,24 @@ void	ft_free_all(t_stack **a, t_stack **b)
 		tmp = *a;
 		(*a) = (*a)->next;
 		free(tmp);
-		tmp = NULL;
 	}
+	free(tmp);
 	if ((*b)->index == -1)
+	{
+		tmp = *b;
+		free(tmp);
 		free((*b));
+	}
+	else
+	{
+		while (*b != NULL)
+		{
+			tmp = *b;
+			(*b) = (*b)->next;
+			free(tmp);
+		}
+		free(tmp);
+	}
 }
 
 t_stack	*ft_init_stack(char **list, int len_list)
