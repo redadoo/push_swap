@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 15:00:27 by edoardo           #+#    #+#             */
-/*   Updated: 2023/08/02 10:53:31 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/08/12 11:25:54 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,24 @@ void	ft_free_all(t_stack **a, t_stack **b)
 		tmp = *a;
 		(*a) = (*a)->next;
 		free(tmp);
-		tmp = NULL;
 	}
+	free(tmp);
 	if ((*b)->index == -1)
+	{
+		tmp = *b;
+		free(tmp);
 		free((*b));
+	}
+	else
+	{
+		while (*b != NULL)
+		{
+			tmp = *b;
+			(*b) = (*b)->next;
+			free(tmp);
+		}
+		free(tmp);
+	}
 }
 
 t_stack	*ft_init_stack(char **list, int len_list)
