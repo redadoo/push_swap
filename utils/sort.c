@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 14:45:13 by evocatur          #+#    #+#             */
-/*   Updated: 2023/07/20 18:21:09 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/08/03 00:27:11 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	sorting_of_3(t_stack **a)
 {
-	if (ft_ascending(a) == 1)
-		return ;
 	if (find_bigger(a)->index == (*a)->index)
 	{
 		if ((*a)->next->value > last_node(a)->value)
@@ -48,18 +46,18 @@ void	big_sort(t_stack **a, t_stack **b)
 	t_stack	*tmp_a;
 	t_stack	*tmp_b;
 
-	tmp_a = (*a);
+ 	tmp_a = (*a);
 	tmp_b = (*b);
 	i = find_median(&tmp_a)->value;
 	while (pushed(&tmp_a, i) != 0)
 		smart_push(&tmp_a, &tmp_b, i);
 	n = last_node(&tmp_b)->index + 1;
 	i = last_node(&tmp_b)->value;
-	x = tmp_a->value;
-	while (n--)
-		low_cost_push(&tmp_a, &tmp_b);
-	while (find_node(&tmp_a, x)->index != 0)
-		ft_ra(&tmp_a, 1);
+	x = tmp_a->value; 
+   	while (n--)
+		low_cost_push(&tmp_a, &tmp_b); 
+    while (find_node(&tmp_a, x, -1)->index != 0)
+		ft_ra(&tmp_a, 1); 
 	while (find_smallest(&tmp_a)->index != 0)
 		ft_pb(&tmp_a, &tmp_b, 1);
 	n = last_node(&tmp_b)->index + 1;
@@ -68,3 +66,5 @@ void	big_sort(t_stack **a, t_stack **b)
 	while (find_smallest(&tmp_a)->index != 0)
 		ft_ra(&tmp_a, 1);
 }
+
+

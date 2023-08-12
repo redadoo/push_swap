@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:30 by evocatur          #+#    #+#             */
-/*   Updated: 2023/07/16 00:41:42 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/08/11 17:48:18 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	push_swap(t_stack **a, t_stack **b)
 		sorting_of_3(&tmp_a);
 	else if (last_node(&tmp_a)->index <= 4)
 		small_sort(&tmp_a, &tmp_b);
-	else if (last_node(&tmp_a)->index <= 499)
+	else if (last_node(&tmp_a)->index <= 99)
 		big_sort(&tmp_a, &tmp_b);
 }
+

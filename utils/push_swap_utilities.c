@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 14:44:43 by evocatur          #+#    #+#             */
-/*   Updated: 2023/07/20 18:34:50 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/08/02 13:41:05 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,25 @@ int	sorted_pos(t_stack **head_ref, int value)
 	return (n);
 }
 
-static	void	rotate(t_stack **b, int m, int index, int value)
+static	void	rotate(t_stack **a, t_stack **b, int m, int index)
 {
+	int	value;
+
+	value = find_node(b, -1, index)->value;
 	if (m == index)
 	{
 		while ((*b)->value != value)
-			ft_rb(b, 1);
+				ft_rb(b, 1);
 	}
 	else
 	{
 		while ((*b)->value != value)
 			ft_rrb(b, 1);
+	}
+	if (value == find_smallest(b)->value)
+	{
+		ft_pa(a, b, 1);
+		ft_ra(a, 1);
 	}
 }
 
@@ -56,15 +64,13 @@ void	low_cost_push(t_stack **a, t_stack **b)
 		j = ((last_node(b)->index + 1) - find_smallest(b)->index);
 	if (i < j)
 	{
-		rotate(b, i, find_bigger(b)->index, find_bigger(b)->value);
+		rotate(a, b, i, find_bigger(b)->index);
 		ft_pa(a, b, 1);
 		return ;
 	}
 	else
 	{
-		rotate(b, j, find_smallest(b)->index, find_smallest(b)->value);
-		ft_pa(a, b, 1);
-		ft_ra(a, 1);
+		rotate(a, b, j, find_smallest(b)->index);
 		return ;
 	}
 	if (find_smallest(b)->value == find_bigger(b)->value)
@@ -85,7 +91,7 @@ static	void	push(t_stack **a, t_stack **b, int n, int x)
 			ft_ra(a, 1);
 		ft_pb(a, b, 1);
 	}
-	else if (x != -1)
+	else
 	{
 		x = find_node_index(a, x)->value;
 		while ((*a)->value != x)

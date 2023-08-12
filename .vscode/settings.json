@@ -19,7 +19,8 @@
         "ostream": "c",
         "ranges": "c",
         "string_view": "c",
-        "initializer_list": "c"
+        "initializer_list": "c",
+        "regex": "c"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "cmake.configureOnOpen": false,

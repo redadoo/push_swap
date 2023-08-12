@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 15:04:56 by edoardo           #+#    #+#             */
-/*   Updated: 2023/07/16 11:16:37 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/07/21 18:14:56 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	pushed(t_stack **head_ref, int value)
 			return (1);
 		tmp = tmp->next;
 	}
-	if (tmp->value < value)
+	if (tmp->value < value )
 		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 10:51:18 by evocatur          #+#    #+#             */
-/*   Updated: 2023/07/13 20:20:58 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/08/03 18:16:50 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void		ft_pa(t_stack **a, t_stack **b, int i);
 void		small_sort(t_stack **a, t_stack **b);
 int			ft_ascending(t_stack **a);
 void		delete_node(t_stack **head_ref, int s_index);
-t_stack		*find_node(t_stack **head_ref, int value);
+t_stack		*find_node(t_stack **head_ref, int value, int index);
 void		push_node(t_stack **head_ref, int value);
 void		ft_ra(t_stack **a, int i);
 void		ft_rra(t_stack **a, int i);
@@ -66,4 +66,5 @@ void		low_cost_push(t_stack **a, t_stack **b);
 int			pushed(t_stack **head_ref, int value);
 void		smart_push(t_stack **a, t_stack **b, int median);
 t_stack		*find_node_index(t_stack **head_ref, int index);
+void		radix_sort(t_stack **a, t_stack **b);
 #endif 
