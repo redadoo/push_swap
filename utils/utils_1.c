@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 15:00:27 by edoardo           #+#    #+#             */
-/*   Updated: 2023/08/12 11:25:54 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/08/24 16:17:06 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,62 +47,30 @@ void	insertion_sort(int *arr, int n)
 	}
 }
 
-/* t_stack	*find_median(t_stack **head_ref)
-{
-	int		i;
-	int		*array;
-	int		size;
-	t_stack	*tmp;
-
-	tmp = (*head_ref);
-	size = last_node(head_ref)->index + 1;
-	array = malloc(size * sizeof(int));
-	size = 0;
-	while (tmp->next != NULL)
-	{
-		array[size++] = tmp->value;
-		tmp = tmp->next;
-	}
-	insertion_sort(array, last_node(head_ref)->index);
-	i = array[last_node(head_ref)->index / 2];
-	free(array);
-	tmp = (*head_ref);
-	while (tmp->next != NULL)
-	{
-		if (tmp->value == i)
-			return (tmp);
-		tmp = tmp->next;
-	}
-	return (tmp);
-} */
-
 void	ft_free_all(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
-	while (*a != NULL)
+	while (*a)
 	{
 		tmp = *a;
 		(*a) = (*a)->next;
 		free(tmp);
 	}
-	free(tmp);
 	if ((*b)->index == -1)
 	{
-		tmp = *b;
-		free(tmp);
 		free((*b));
 	}
 	else
 	{
-		while (*b != NULL)
+		while (*b)
 		{
 			tmp = *b;
 			(*b) = (*b)->next;
 			free(tmp);
 		}
-		free(tmp);
 	}
+	free(tmp);
 }
 
 t_stack	*ft_init_stack(char **list, int len_list)

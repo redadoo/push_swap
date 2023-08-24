@@ -6,11 +6,7 @@
 #    By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/19 15:41:17 by evocatur          #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2023/08/03 18:17:07 by edoardo          ###   ########.fr        #
-=======
-#    Updated: 2023/07/26 17:06:00 by evocatur         ###   ########.fr        #
->>>>>>> 183cd13afa0ab740d8dad9bf7e296ebffe30b753
+#    Updated: 2023/08/24 16:19:57 by evocatur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +26,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -rf
 
-<<<<<<< HEAD
-$(eval STACK = $(shell python3 stack_gen/stack_gen.py 10))
-=======
-$(eval STACK = $(shell python3 stack_gen/stack_gen.py 5))
->>>>>>> 183cd13afa0ab740d8dad9bf7e296ebffe30b753
+$(eval STACK = $(shell python3 stack_gen/stack_gen.py 3))
 MY_VAR := $(shell echo STACK )
 
 all: $(NAME)

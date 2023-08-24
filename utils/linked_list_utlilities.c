@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linked_list_utlilities.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 17:44:11 by evocatur          #+#    #+#             */
-/*   Updated: 2023/08/12 11:26:02 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/08/24 15:19:04 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,53 +67,4 @@ t_stack	*find_node(t_stack **head_ref, int value, int index)
 		find = find->next;
 	}
 	return (find);
-}
-
-int	static	delete_node_utils(t_stack **h, int i, t_stack	*t, t_stack	*prev)
-{
-	if (t != NULL && i == 0)
-	{
-		if ((*h)->next != NULL)
-			(*h) = (*h)->next;
-		else
-			(*h)->index = -1;
-	}
-	else if (i != 0)
-	{
-		while (t->next != NULL && t->index < i) 
-		{
-			prev = t;
-			t = t->next;
-		}
-		if (t == NULL)
-			return (0);
-		prev->next = t->next;
-		if (t->next != NULL)
-			t->next->prev = prev;
-	}
-	free(t);
-	return (1);
-}
-
-void	delete_node(t_stack **head_ref, int s_index)
-{
-	t_stack	*prev;
-	t_stack	*temp;
-	int		tmp;
-
-	temp = (*head_ref);
-	tmp = last_node(&temp)->index;
-	if (delete_node_utils(head_ref, s_index, temp, prev) == 0)
-		return ;
-	temp = NULL;
-	temp = (*head_ref);
-	while (temp->next != NULL && temp->index < s_index)
-		temp = temp->next;
-	while (temp->next != NULL)
-	{
-		temp->index -= 1;
-		temp = temp->next;
-	}
-	if (s_index != tmp)
-		temp->index -= 1;
 }
