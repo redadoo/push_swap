@@ -6,7 +6,7 @@
 /*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:15:03 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/20 14:13:43 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/09/20 15:14:50 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,12 @@ void	ft_putstr(char *str)
 
 void	ft_error(char *str)
 {
-	ft_putstr(str);
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	write(2, str, i);
 	exit(0);
 }
 

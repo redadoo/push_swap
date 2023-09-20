@@ -6,7 +6,7 @@
 #    By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/30 22:02:43 by fborroto          #+#    #+#              #
-#    Updated: 2023/09/20 14:38:22 by edoardo          ###   ########.fr        #
+#    Updated: 2023/09/20 15:12:20 by edoardo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,9 +41,7 @@ gen: all
 test:all
 	@./$(NAME) 5 2 3 
 leak:all
-	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) $(STACK)
-leakmac:all
-	@@leaks --atExit -- ./$(NAME) $(STACK)
+	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
 clean: 
 	@${RM} ${OBJ}
 
