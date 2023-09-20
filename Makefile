@@ -3,31 +3,25 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+         #
+#    By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/19 15:41:17 by evocatur          #+#    #+#              #
-#    Updated: 2023/08/24 16:19:57 by evocatur         ###   ########.fr        #
+#    Created: 2023/08/30 22:02:43 by fborroto          #+#    #+#              #
+#    Updated: 2023/09/20 14:38:22 by edoardo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRC = $(MAIN_SRC) $(UTILITIES_SRC) $(LIBFT_SRC)
+
+SRC = $(MAIN_SRC)
 
 MAIN_SRC = src/*.c
-
-LIBFT_SRC = ft_libft/*.c
-
-UTILITIES_SRC = utils/*.c
 
 OBJ = *.o
 
 CFLAGS = -Wall -Wextra -Werror 
 
 RM = rm -rf
-
-$(eval STACK = $(shell python3 stack_gen/stack_gen.py 3))
-MY_VAR := $(shell echo STACK )
 
 all: $(NAME)
 
@@ -39,18 +33,17 @@ $(NAME): $(OBJ)
 
 $(OBJ): $(SRC)
 	@echo "     - Making object files..."
-	@gcc -c $(SRC)
+	@gcc -c $(SRC) $(CFLAGS)
 
 gen: all
 	@./$(NAME) $(STACK)
 
-leaks: all
-	@leaks --groupByType --atExit -- ./$(NAME) 1 7 4
-
-test: all
-	@./$(NAME) 1 7 4
-test1: all
-	@./$(NAME) 4 3 1
+test:all
+	@./$(NAME) 5 2 3 
+leak:all
+	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) $(STACK)
+leakmac:all
+	@@leaks --atExit -- ./$(NAME) $(STACK)
 clean: 
 	@${RM} ${OBJ}
 
