@@ -6,7 +6,7 @@
 #    By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/30 22:02:43 by fborroto          #+#    #+#              #
-#    Updated: 2023/09/22 13:39:34 by evocatur         ###   ########.fr        #
+#    Updated: 2023/09/22 18:17:30 by evocatur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ NAME = push_swap
 SRC = $(MAIN_SRC)
 
 MAIN_SRC = src/*.c
+
+CHECKER_SRC = src/check.c src/ft_moves.c src/ft_moves2.c src/ft_split.c src/ft_utils.c src/struct_utils.c src/utils.c src_checker/*.c
 
 OBJ = *.o
 
@@ -40,8 +42,18 @@ gen: all
 
 test:all
 	@./$(NAME) 5 2 3 
+	
 leak:all
-	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) "due1 2 3"
+	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) "1 12" 32 1
+	@${RM} ${OBJ}
+
+comp_check:
+	@gcc -c $(CHECKER_SRC) $(CFLAGS)
+	@gcc -c $(CHECKER_SRC) $(CFLAGS)
+	@gcc $(CFLAGS) $(OBJ) -o checker
+	@${RM} ${OBJ}
+
+
 clean: 
 	@${RM} ${OBJ}
 

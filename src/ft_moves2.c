@@ -3,20 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_moves2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 11:02:56 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/20 14:13:38 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/09/22 18:11:30 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_rotate_rotate(t_stack **a, t_stack **b)
+void	ft_rotate_rotate(t_stack **a, t_stack **b, int flag)
 {
 	rotate_n(a, 3);
 	rotate_n(b, 3);
-	ft_putstr("rr\n");
+	if (flag == 1)
+		ft_putstr("rr\n");
 }
 
 void	rotate_rotate_n(t_stack **stack, int ab)
@@ -42,9 +43,10 @@ void	rotate_rotate_n(t_stack **stack, int ab)
 	return ;
 }
 
-void	rotate_rotate_rotate(t_stack **a, t_stack **b)
+void	rotate_rotate_rotate(t_stack **a, t_stack **b, int flag)
 {
 	rotate_rotate_n(a, 3);
 	rotate_rotate_n(b, 3);
-	ft_putstr("rrr\n");
+	if (flag == 1)
+		ft_putstr("rrr\n");
 }

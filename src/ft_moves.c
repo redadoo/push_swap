@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_moves.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 09:50:54 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/20 14:13:38 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/09/22 18:15:45 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ void	swap_n(t_stack **stack, int ab)
 	return ;
 }
 
-void	ft_swap_swap(t_stack **a, t_stack **b)
+void	ft_swap_swap(t_stack **a, t_stack **b, int flag)
 {
 	swap_n(a, 3);
 	swap_n(b, 3);
-	ft_putstr("ss\n");
+	if (flag == 1)
+		ft_putstr("ss\n");
 }
 
 void	push_finish(t_stack **from, t_stack **to, t_stack *tmp, int ab)

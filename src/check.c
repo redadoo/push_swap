@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 11:49:20 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/22 13:37:52 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/09/22 18:23:52 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,22 +58,34 @@ void	ft_check_arg(char **argv, int argc)
 	}
 }
 
-void	ft_check_double(t_stack *a)
+void	ft_check_double(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
-	tmp = a;
+	tmp = (*a);
 	while (a->next != NULL)
 	{
-		tmp = a->next;
+		tmp = (*a)->next;
 		while (tmp != NULL)
 		{
-			if (a->value == tmp->value)
+			if ((*a)->value == tmp->value)
 			{
-				ft_error("Error\n", NULL);
+				write(2,"Error\n",7);
+				ft_close(a, b);
 			}
 			tmp = tmp->next;
 		}
 		a = a->next;
 	}
+}
+
+int	ft_check_order(t_stack *stack)
+{
+	while (stack->next != NULL)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

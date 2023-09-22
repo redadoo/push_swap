@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 11:11:02 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/22 13:33:56 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:21:52 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,27 @@ t_stack	*find_smallest(t_stack *a)
 		a = a->next;
 	}
 	return (smallest);
+}
+
+void	ft_close(t_stack **a, t_stack **b)
+{
+	t_stack	*tmp;
+
+	tmp = (*a);
+	while (tmp->next != NULL)
+	{
+		free(tmp);
+		tmp = tmp->next;
+	}
+	free(tmp);
+	if (!(*b))
+		exit(0);
+	tmp = (*b);
+	while (tmp->next != NULL)
+	{
+		free(tmp);
+		tmp = tmp->next;
+	}
+	free(tmp);
+	exit(0);
 }

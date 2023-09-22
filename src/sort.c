@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 22:49:47 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/20 14:13:41 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/09/22 18:11:45 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node,
 	if (reverse)
 	{
 		while (*a != cheapest_node->target_node && *b != cheapest_node)
-			ft_rotate_rotate(a, b);
+			ft_rotate_rotate(a, b, 1);
 	}
 	else
 	{
 		while (*a != cheapest_node->target_node && *b != cheapest_node)
-			rotate_rotate_rotate(a, b);
+			rotate_rotate_rotate(a, b, 1);
 	}
 }
 

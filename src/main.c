@@ -6,45 +6,11 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:59:12 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/22 13:09:17 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/09/22 18:21:33 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_close(t_stack **a, t_stack **b)
-{
-	t_stack	*tmp;
-
-	tmp = (*a);
-	while (tmp->next != NULL)
-	{
-		free(tmp);
-		tmp = tmp->next;
-	}
-	free(tmp);
-	if (!(*b))
-		exit(0);
-	tmp = (*b);
-	while (tmp->next != NULL)
-	{
-		free(tmp);
-		tmp = tmp->next;
-	}
-	free(tmp);
-	exit(0);
-}
-
-int	ft_check_order(t_stack *stack)
-{
-	while (stack->next != NULL)
-	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
-}
 
 int	ft_list_len(t_stack *stack)
 {
@@ -61,9 +27,11 @@ int	main(int argc, char **argv)
 	t_stack	*b;
 
 	b = NULL;
+	if (argc == 1)
+		return (0);
 	ft_check_arg(argv, argc);
 	ft_init(&a, argv, argc);
-	ft_check_double(a);
+	ft_check_double(&a, &b);
 	if (ft_check_order(a) == 1)
 	{
 		ft_close(&a, &b);
