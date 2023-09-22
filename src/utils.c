@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:15:03 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/22 13:20:22 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/09/22 13:38:30 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_putstr(char *str)
 	write(1, str, i);
 }
 
-void	ft_error(char *str)
+void	ft_error(char *str, char **tab)
 {
 	int	i;
 
@@ -30,10 +30,12 @@ void	ft_error(char *str)
 	while (str[i])
 		i++;
 	write(2, str, i);
+	if (tab != NULL)
+		free_tab(tab);
 	exit(0);
 }
 
-long	ft_atoi(const char *str)
+long	ft_atoi(const char *str, char **tab)
 {
 	int		i;
 	int		sign;
@@ -48,11 +50,11 @@ long	ft_atoi(const char *str)
 		i++;
 	}
 	if (str[i] == '\0')
-		ft_error("Error\n");
+		ft_error("Error\n", tab);
 	while (str[i] != '\0')
 	{
 		if (str[i] < '0' || str[i] > '9')
-			ft_error("Error\n");
+			ft_error("Error\n", tab);
 		result = result * 10 + str[i] - '0';
 		i++;
 	}

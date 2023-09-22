@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 11:11:02 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/22 13:23:45 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/09/22 13:33:56 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,14 @@ void	ft_init(t_stack **a, char **argv, int argc)
 			numbers = ft_split(argv[i], ' ');
 			while (numbers[x])
 			{
-				ft_add(a, ft_atoi(numbers[x]));
+				ft_add(a, ft_atoi(numbers[x], numbers));
 				x++;
 			}
 			free_tab(numbers);
 			i++;
 		}
 		else if (i < argc)
-			ft_add(a, ft_atoi(argv[i]));
+			ft_add(a, ft_atoi(argv[i], NULL));
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 11:49:20 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/22 13:22:52 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/09/22 13:37:52 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ static int	check_inside(char *str)
 		numbers = ft_split(str, ' ');
 		while (numbers[++i])
 		{
-			j = ft_atoi(numbers[i]);
+			j = ft_atoi(numbers[i], numbers);
 			if (j <= -2147483649 || j >= 2147483648)
 			{
 				free_tab(numbers);
-				ft_error("Error\n");
+				ft_error("Error\n", NULL);
 			}
 		}
 		free_tab(numbers);
@@ -48,9 +48,9 @@ void	ft_check_arg(char **argv, int argc)
 			i++;
 		else if (i < argc)
 		{
-			j = ft_atoi(argv[i]);
+			j = ft_atoi(argv[i], NULL);
 			if (j <= -2147483649 || j >= 2147483648)
-				ft_error("Error\n");
+				ft_error("Error\n", NULL);
 		}
 		else
 			break ;
@@ -70,7 +70,7 @@ void	ft_check_double(t_stack *a)
 		{
 			if (a->value == tmp->value)
 			{
-				ft_error("Error\n");
+				ft_error("Error\n", NULL);
 			}
 			tmp = tmp->next;
 		}

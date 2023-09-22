@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 23:55:03 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/22 13:13:42 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/09/22 13:38:10 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,9 @@ void				rotate_rotate_rotate(t_stack **a, t_stack **b);
 void				rotate_n(t_stack **stack, int ab);
 void				ft_init(t_stack **a, char **argv, int argc);
 void				push_n(t_stack **from, t_stack **to, int ab);
-long				ft_atoi(const char *str);
+long				ft_atoi(const char *str, char **tab);
 void				ft_putstr(char *str);
-void				ft_error(char *str);
-long				ft_atoi(const char *str);
+void				ft_error(char *str, char **tab);
 void				ft_check_arg(char **argv, int argc);
 void				ft_check_double(t_stack *a);
 void				set_price(t_stack *a, t_stack *b);
