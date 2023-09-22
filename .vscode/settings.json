@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "random": "c"
-    }
+        "random": "c",
+        "push_swap.h": "c",
+        "stdio.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }

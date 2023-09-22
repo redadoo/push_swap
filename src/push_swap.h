@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 23:55:03 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/20 14:13:40 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/09/22 13:13:42 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "stdbool.h"
 # include "stdlib.h"
 # include "unistd.h"
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -31,6 +32,13 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }					t_stack;
 
+void				free_tab(char **tab);
+int					between_quoation(char *str);
+void				*ft_memset(void *b, int c, size_t len);
+void				ft_bzero(void *s, size_t n);
+void				*ft_calloc(size_t count, size_t size);
+int					ft_strlen(const char *s);
+char				**ft_split(char const *s, char c);
 void				finish_rotation(t_stack **stack, t_stack *top_node, bool a);
 void				update_struct(t_stack **a, t_stack **b);
 void				ft_rotate_rotate(t_stack **a, t_stack **b);
@@ -51,7 +59,7 @@ long				ft_atoi(const char *str);
 void				ft_putstr(char *str);
 void				ft_error(char *str);
 long				ft_atoi(const char *str);
-void				ft_check_arg(char **argv);
+void				ft_check_arg(char **argv, int argc);
 void				ft_check_double(t_stack *a);
 void				set_price(t_stack *a, t_stack *b);
 void				set_cheapest(t_stack *b);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:59:12 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/20 14:53:37 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/09/22 13:09:17 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,8 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 
-	if (argc < 3)
-		return (0);
 	b = NULL;
-	ft_check_arg(argv);
+	ft_check_arg(argv, argc);
 	ft_init(&a, argv, argc);
 	ft_check_double(a);
 	if (ft_check_order(a) == 1)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:15:03 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/20 15:14:50 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/09/22 13:20:22 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ long	ft_atoi(const char *str)
 		i++;
 	}
 	if (str[i] == '\0')
-		ft_error("Error: Invalid input\n");
+		ft_error("Error\n");
 	while (str[i] != '\0')
 	{
 		if (str[i] < '0' || str[i] > '9')
-			ft_error("Error: Invalid input\n");
+			ft_error("Error\n");
 		result = result * 10 + str[i] - '0';
 		i++;
 	}
