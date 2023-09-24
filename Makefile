@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+         #
+#    By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/30 22:02:43 by fborroto          #+#    #+#              #
-#    Updated: 2023/09/22 18:17:30 by evocatur         ###   ########.fr        #
+#    Updated: 2023/09/24 03:19:54 by edoardo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,11 +44,10 @@ test:all
 	@./$(NAME) 5 2 3 
 	
 leak:all
-	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) "1 12" 32 1
+	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) "1 4" 32 2 1
 	@${RM} ${OBJ}
 
 comp_check:
-	@gcc -c $(CHECKER_SRC) $(CFLAGS)
 	@gcc -c $(CHECKER_SRC) $(CFLAGS)
 	@gcc $(CFLAGS) $(OBJ) -o checker
 	@${RM} ${OBJ}

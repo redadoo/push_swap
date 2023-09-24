@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:59:12 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/22 18:21:33 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/09/24 01:59:50 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/* static void print(t_stack *a)
+{
+	while(a != NULL)
+	{
+		printf("index  = %i value = %i\n",a->index, a->value);
+		a = a->next;
+	}
+} */
 
 int	ft_list_len(t_stack *stack)
 {
@@ -31,7 +40,7 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_check_arg(argv, argc);
 	ft_init(&a, argv, argc);
-	ft_check_double(&a, &b);
+	ft_check_double(a, b);
 	if (ft_check_order(a) == 1)
 	{
 		ft_close(&a, &b);

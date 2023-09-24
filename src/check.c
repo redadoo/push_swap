@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 11:49:20 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/22 18:23:52 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/09/24 01:59:30 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,24 +58,26 @@ void	ft_check_arg(char **argv, int argc)
 	}
 }
 
-void	ft_check_double(t_stack **a, t_stack **b)
+void	ft_check_double(t_stack *a, t_stack *b)
 {
 	t_stack	*tmp;
+	t_stack	*new_a;
 
-	tmp = (*a);
-	while (a->next != NULL)
+	new_a = a;
+	tmp = new_a;
+	while (new_a->next != NULL)
 	{
-		tmp = (*a)->next;
+		tmp = new_a->next;
 		while (tmp != NULL)
 		{
-			if ((*a)->value == tmp->value)
+			if (new_a->value == tmp->value)
 			{
-				write(2,"Error\n",7);
-				ft_close(a, b);
+				write(2, "Error\n", 7);
+				ft_close(&a, &b);
 			}
 			tmp = tmp->next;
 		}
-		a = a->next;
+		new_a = new_a->next;
 	}
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 23:55:03 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/22 18:21:14 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/09/24 01:59:06 by edoardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void				ft_sort3(t_stack **a);
 int					ft_list_len(t_stack *stack);
 void				ft_big_sort(t_stack **a, t_stack **b);
 void				ft_add(t_stack **head_ref, int value);
+void				ft_swap_swap(t_stack **a, t_stack **b, int flag);
 void				swap_n(t_stack **stack, int ab);
 void				decrease_index(t_stack **stack);
 void				increase_index(t_stack **stack);
@@ -61,7 +62,7 @@ long				ft_atoi(const char *str, char **tab);
 void				ft_putstr(char *str);
 void				ft_error(char *str, char **tab);
 void				ft_check_arg(char **argv, int argc);
-void				ft_check_double(t_stack **a, t_stack **b);
+void				ft_check_double(t_stack *a, t_stack *b);
 void				set_price(t_stack *a, t_stack *b);
 void				set_cheapest(t_stack *b);
 void				set_target_node(t_stack *a, t_stack *b);
