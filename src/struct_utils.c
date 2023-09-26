@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 11:11:02 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/22 17:21:52 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/09/26 10:32:52 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_add(t_stack **head_ref, int value)
 
 	new_node = NULL;
 	new_node = (t_stack *)malloc(sizeof(t_stack));
+	new_node->cheapest = false;
 	if (!new_node)
 		return ;
 	new_node->value = value;
@@ -64,24 +65,25 @@ void	ft_init(t_stack **a, char **argv, int argc)
 	char	**numbers;
 
 	i = 1;
-	x = 0;
+	x = -1;
 	(*a) = NULL;
 	while (i < argc)
 	{
 		if (i < argc && between_quoation(argv[i]) == 1)
 		{
 			numbers = ft_split(argv[i], ' ');
-			while (numbers[x])
-			{
+			while (numbers[++x])
 				ft_add(a, ft_atoi(numbers[x], numbers));
-				x++;
-			}
 			free_tab(numbers);
 			i++;
 		}
 		else if (i < argc)
+		{
 			ft_add(a, ft_atoi(argv[i], NULL));
-		i++;
+			i++;
+		}
+		else
+			break ;
 	}
 }
 
@@ -104,20 +106,21 @@ void	ft_close(t_stack **a, t_stack **b)
 	t_stack	*tmp;
 
 	tmp = (*a);
-	while (tmp->next != NULL)
+	while ((*a))
 	{
+		tmp = (*a);
+		(*a) = (*a)->next;
 		free(tmp);
-		tmp = tmp->next;
 	}
-	free(tmp);
+	free((*a));
 	if (!(*b))
 		exit(0);
-	tmp = (*b);
-	while (tmp->next != NULL)
+	while ((*b))
 	{
+		tmp = (*b);
+		(*b) = (*b)->next;
 		free(tmp);
-		tmp = tmp->next;
 	}
-	free(tmp);
+	free((*b));
 	exit(0);
 }

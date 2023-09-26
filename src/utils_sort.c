@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 14:22:10 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/20 14:13:43 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/09/26 09:51:59 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_stack	*return_cheapest(t_stack *stack)
 {
-	if (NULL == stack)
+	if (stack == NULL)
 		return (NULL);
 	while (stack)
 	{

@@ -6,7 +6,7 @@
 /*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 22:49:47 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/22 18:11:45 by evocatur         ###   ########.fr       */
+/*   Updated: 2023/09/26 09:50:18 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static	void	sort_b(t_stack **a, t_stack **b)
 {
 	t_stack	*cheapest_node;
 
-	cheapest_node = return_cheapest(*b);
+	cheapest_node = return_cheapest((*b));
 	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
 		rotate_both(a, b, cheapest_node, true);
 	else if (!(cheapest_node->above_median)

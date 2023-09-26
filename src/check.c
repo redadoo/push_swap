@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoardo <edoardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evocatur <evocatur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 11:49:20 by fborroto          #+#    #+#             */
-/*   Updated: 2023/09/24 01:59:30 by edoardo          ###   ########.fr       */
+/*   Updated: 2023/09/26 11:01:55 by evocatur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	check_empty(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		i++;
+	}
+	if (i == 1 && (int)str[0] == 32)
+		return (0);
+	return (1);
+}
 
 static int	check_inside(char *str)
 {
@@ -18,8 +32,9 @@ static int	check_inside(char *str)
 	long	j;
 	char	**numbers;
 
-	if (between_quoation(str) == 1)
+	if (between_quoation(str) == 1 && check_empty(str) == 1)
 	{
+		i = -1;
 		numbers = ft_split(str, ' ');
 		while (numbers[++i])
 		{
