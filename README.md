@@ -46,7 +46,7 @@ To run `push_swap` follow these steps:
 git clone https://github.com/redadoo/push_swap.git
 ```
 
-2. enter so_long Folder
+2. enter push_swap Folder
 ```bash
 cd push_swap/
 ```
@@ -56,6 +56,7 @@ make
 ```
 4. test
 * I recommend this repository for testing [push_swap visualizer](https://github.com/o-reo/push_swap_visualizer)
+  
 ## Ressources
 
 * https://www.youtube.com/watch?v=OaG81sDEpVk&t=4262s
